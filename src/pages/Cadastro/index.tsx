@@ -1,14 +1,14 @@
-import React, { FormEvent } from 'react';
+import React, { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Input from '../../components/Input';
 import useForm from '../../hooks/useForm';
 import Button from '../../components/Button';
-import { AnimeLeft, MainContainer, LoginContainer } from '../../global';
-import { Content } from '../../global';
+import { AnimeLeft, MainContainer, LoginContainer, Content, ColunaDois } from '../../global';
+import Select from '../../components/Select';
 
 const Cadastro: React.FC = () => {
-
+    const [subject, setSubject] = useState('');
     const nome = useForm();
     const email = useForm("email");
     const senha = useForm("senha");
@@ -30,20 +30,31 @@ const Cadastro: React.FC = () => {
 
                         <h3>Seja bem vindo!</h3>
 
-                        <div>
-                            <Input label="Nome" type="text" nome="nome" {...nome} />
+                        <Input label="Nome" type="text" nome="nome" {...nome} />
+
+                        <ColunaDois>
+                            <Input label="Senha" type="password" nome="password" {...senha} />
+                            <Select value={subject}
+                                onChange={(e) => setSubject(e.target.value)}
+                                label="Sexo"
+                                name="subject"
+                                options={[
+                                    { value: 'f', label: 'Feminino ' },
+                                    { value: 'm', label: 'Masculino ' },
+                                    { value: 'n', label: 'Não informar ' },
+
+                                ]} >
+
+                            </Select>
+                        </ColunaDois>
+
+                        <ColunaDois>
+                            <Input label="Telefone" type="tel" nome="telefone" {...telefone} />
                             <Input label="CPF" type="text" nome="cpf" {...cpf} />
-                        </div>
+                        </ColunaDois>
                         <Input label="Email" type="email" nome="email" {...email} />
 
-                        <div>
 
-                            <Input label="Senha" type="password" nome="password" {...senha} />
-
-                            <Input label="Telefone" type="tel" nome="telefone" {...telefone} />
-
-                            <Input label="Sexo" type="text" nome="sexo" {...sexo} />
-                        </div>
 
 
 

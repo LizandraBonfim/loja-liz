@@ -16,6 +16,7 @@ import {
     BotaoComprar
 } from './produtoDetalheEstrutura';
 import { Preco } from './ProdutoEstrutura';
+import MiniFotos from '../MiniFotos';
 
 
 
@@ -80,7 +81,10 @@ const ProdutoDetalhe: React.FC = () => {
                             </Link>
                         </BotaoComprar>
                     </DetalhesCompra>
+
                 </Container>
+                <MiniFotos />
+
             </AnimeLeft>
 
         </MainContainer>

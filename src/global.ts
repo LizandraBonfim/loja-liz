@@ -42,6 +42,7 @@ svg > * {
     /* text-transform: uppercase; */
   }
 
+
   input, button{
     width: 100%;
     display: block;
@@ -157,5 +158,10 @@ export const DisplayFlex = styled.div`
     justify-content: space-between;
 `;
 
+export const ColunaDois = styled.div`
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+`;
 
 export default GlobalStyle; 
