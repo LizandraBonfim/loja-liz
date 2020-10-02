@@ -16,21 +16,32 @@ const GlobalStyle = createGlobalStyle`
     --color-backgroundblack: #282c34;
     --color-rosa : #fc5c94;
     --font-oswald : "Oswald", Helvetica, Sans-Serif;
-  
+    --border-color-escuro: border-color: rgb(24, 26, 31);
+    --font-roboto: Roboto, Helvetica, Sans-Serif;
     
   }
-
+  
+svg > * {
+  fill: var(--color-cinza) ;
+}
 
   body {
     margin: 0;
     padding: 0;
-    font-family: Roboto, Helvetica, Sans-Serif;
+    font-family: var(--font-roboto);
     box-sizing: border-box;
+    /* background: #24292e; */
   }
+
+  /* header{
+    border-color: rgb(24, 26, 31);
+  } */
   input, button{
     width: 100%;
     display: block;
     box-sizing: border-box;
+    /* border: none; */
+    outline: none;
   }
   a{
     text-decoration: none;
@@ -49,10 +60,8 @@ const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
 
-  button{
-    border: none;
-    outline: none;
-  }
+ 
+
 `;
 
 export const Container = styled.section`

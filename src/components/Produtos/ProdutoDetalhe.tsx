@@ -4,22 +4,25 @@ import { Link } from 'react-router-dom';
 import { FaStar, FaShoppingCart } from 'react-icons/fa';
 import { FcChargeBattery } from 'react-icons/fc';
 import produto from '../../assets/produtos/caneca3.jpg';
-
+import Button from '../Button';
+import Input from '../Input';
 import { MainContainer, AnimeLeft } from '../../global';
 import {
     Container,
     Avaliacao,
     QtdEstoque,
-    Quantidade,
-    BtnAddCarrinho,
+    CalculoFrete,
     DetalhesCompra,
     BotaoComprar
 } from './produtoDetalheEstrutura';
+import { Preco } from './ProdutoEstrutura';
+
 
 
 const ProdutoDetalhe: React.FC = () => {
 
     return (
+
         <MainContainer>
             <AnimeLeft>
                 <Container>
@@ -51,34 +54,35 @@ const ProdutoDetalhe: React.FC = () => {
                             </QtdEstoque>
 
                         </Avaliacao>
+                        <Preco>
 
-                        <h3>R$ 50,00</h3>
+                            <h3>R$ 50,00</h3>
+                        </Preco>
 
                         <h3>Caneca porcelana com impressão térmica de alta resistência.</h3>
 
-                        <h5>100</h5>
 
-                        <Quantidade>
-                            Quantidade:
-                                <input type="number" name="" id="" />
-                        </Quantidade>
+                        <p>Calculo frete</p>
+                        <CalculoFrete>
+
+                            <Input type="text" nome="calculo" />
+                            <Button>  Calcular  </Button>
+                        </CalculoFrete>
 
                         <BotaoComprar>
-                            <BtnAddCarrinho>
-                                Adicionar ao Carrinho
-                                <FaShoppingCart />
-                            </BtnAddCarrinho>
+                            <Link to="/">
+                                <Button>  Adicionar ao Carrinho</Button>
+                            </Link>
+
 
                             <Link to="/">
-                                <button>
-
-                                    Voltar
-                                </button>
+                                <Button>  Voltar</Button>
                             </Link>
                         </BotaoComprar>
                     </DetalhesCompra>
                 </Container>
             </AnimeLeft>
+
         </MainContainer>
     );
 }

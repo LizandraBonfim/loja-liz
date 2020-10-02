@@ -8,7 +8,9 @@ import {
     FaFacebook,
     FaYoutube,
     FaTwitter,
-    FaRegUser
+    FaRegUser,
+    FaMoon,
+    FaRegLightbulb
 } from 'react-icons/fa';
 
 import logo from '../../assets/logo-escuro.png';
@@ -21,7 +23,8 @@ import {
     HeaderTop,
     RedesSociais,
     Contatos,
-    Nav
+    Nav,
+    BotaoToggle
 } from './styles';
 import Input from '../Input';
 
@@ -45,6 +48,12 @@ const Header: React.FC = () => {
                     <Contatos>
                         <p> <FaPhone /> Tel: 11 0000-0000</p>
                         <Link to="/"><FaMailBulk /> Fale Conosco</Link>
+                        <BotaoToggle >
+                            <FaRegLightbulb size={20} />
+                            <input type="checkbox" id="onoff1" />
+                            <label htmlFor="onoff1" />
+                            <FaMoon size={20} />
+                        </BotaoToggle>
                     </Contatos>
 
                 </HeaderTopContent>
@@ -76,6 +85,8 @@ const Header: React.FC = () => {
 
                         <span>0</span>
                     </CarrinhoIcon>
+
+
                 </Carrinho>
             </Content>
 

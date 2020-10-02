@@ -49,6 +49,7 @@ export const DescricaoProduto = styled.div`
     padding: .6rem;
     text-align: center;
     color: var(--color-secondary);
+    background: var(--color-branco);
 
     h4{
         font-family: var(--font-oswald);

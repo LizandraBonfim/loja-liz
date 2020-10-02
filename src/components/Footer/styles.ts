@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const FooterContainer = styled.footer`
-    box-shadow: -1px -1px 0 0 #b9afaf;
+    box-shadow: -1px -1px 0 0 var(--color-cinza);
     padding: 2rem 0;
 `;
 
@@ -61,21 +61,19 @@ export const Institucional = styled.div`
 
             &:hover{
 
-                &:nth-child(1){
-                    color: #f008bd;
+                &:nth-child(1) svg > * {
+                fill: var(--color-instagram);
                 }
-
-                &:nth-child(2){
-                    color: rgb(7, 79, 212);
+                &:nth-child(2) svg > *{
+                    fill: var(--color-facebook);
                 }
-
-                &:nth-child(3){
-                    color: red;
+                &:nth-child(3) svg > *{
+                    fill: var(--color-twitter);
                 }
-
-                &:nth-child(4){
-                    color: #0a95b8;
+                &:nth-child(4) svg > *{
+                    fill: var(--color-youtube);
                 }
+            
             }
            
 

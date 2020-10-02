@@ -41,7 +41,7 @@ export const Content = styled(Container)`
     padding: 1rem 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    background: var(--color-branco);
+    /* background: var(--color-branco); */
     margin-top: .1rem;
     img{
         margin: auto;
@@ -151,17 +151,17 @@ export const RedesSociais = styled.ul`
         }
         &:hover{
 
-            &:nth-child(1){
-                color: var(--color-instagram);
+            &:nth-child(1) svg > * {
+                fill: var(--color-instagram);
             }
-            &:nth-child(2){
-                color: var(--color-facebook);
+            &:nth-child(2) svg > *{
+                fill: var(--color-facebook);
             }
-            &:nth-child(3){
-                color: var(--color-twitter);
+            &:nth-child(3) svg > *{
+                fill: var(--color-twitter);
             }
-            &:nth-child(4){
-                color: var(--color-youtube);
+            &:nth-child(4) svg > *{
+                fill: var(--color-youtube);
             }
         }
            
@@ -181,4 +181,56 @@ export const Contatos = styled(DisplayFlex)`
     }
 `;
 
+export const BotaoToggle = styled.div`
+
+display: flex;
+align-items: center;
+position: relative;
+input{
+    display: none;
+}
+
+input + label {
+    display: inline-block;
+    position: relative;
+    box-shadow: inset 0 0 0px 1px #d5d5d5;
+    height: 1rem;
+    width: 2rem;
+    border-radius: 30px;
+}
+
+        input  + label{
+
+        &::after  {
+            content: "";
+            position: absolute;
+            height: 1rem;
+            width: 1rem;
+            /* top: 2px; */
+            /* right: 0px; */
+            border-radius: 30px;
+            background: var(--color-branco);
+            box-shadow: inset 0 0 0 1px rgba(0,0,0,0.2), 0 2px 4px rgba(0,0,0,0.2);
+            -webkit-transition: 0.1s ease-in-out;
+            transition: 0.1s ease-in-out;
+        }
+
+        
+    }
+
+    input:checked + label{
+        box-shadow: inset 1px 0px 3px 1px var(--color-rosa), 0 2px 4px rgba(0, 0, 0, 0.2);
+
+    }
+
+    input:checked + label:before {
+        width: 100px;
+        background: var(--color-rosa);
+    }
+    
+    input:checked + label:after {
+        left: 1rem;
+        box-shadow: inset 0 0 0 1px var(--color-rosa), 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+`;
 

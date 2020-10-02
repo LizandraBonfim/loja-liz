@@ -39,6 +39,9 @@ export const Container = styled.div`
 export const DetalhesCompra = styled.section`
     border-left: 1px solid #eee;
     padding: 1rem;
+    font-family: var(--font-oswald);
+
+    
 `;
 
 export const QtdEstoque = styled.div`
@@ -58,14 +61,14 @@ export const Avaliacao = styled(DisplayFlex)`
 
         margin-left: 0;
 
-        &:first-child{
-            color: #fb1;
+        /* &:first-child svg > *{
+            fill: #fb1;
             
-            > svg:nth-child(5){
-                color: #a2a2a2;
+            > svg:nth-child(5) svg  > *{
+                fill: var(--color-cinza);
             }
 
-        }
+        } */
     }
     @media(max-width: 60rem){
         padding: 0;
@@ -73,50 +76,51 @@ export const Avaliacao = styled(DisplayFlex)`
 
 `;
 
-export const Quantidade = styled.div`
+export const CalculoFrete = styled.form`
 
-input{
-
-    width: 20%;
-}
-`;
-
-export const BtnAddCarrinho = styled.button`
-    
-        margin-top: 2rem;
-        padding: .5rem;
-        color: green;
-        background: #fff;
-        border-color: green;
-        border-radius: .4rem;
-        cursor: pointer;
-        font-size: 1rem;
-        margin-right: .5rem;
-
-        &:hover{
-        
-      }
-
-      @media(max-width: 60rem){
-        
-            font-size: .8rem;
-        }
-    
-`;
-
-export const BotaoComprar = styled.div`
+    position: relative;
     display: flex;
-
+    margin: 1rem 0;
     
 
-    button:nth-child(2){
-        width: 80%;
-
-        @media(max-width: 60rem){
-        
-            width: 60%;
-        }
+    input, button{
+        /* padding: .5rem; */
+        /* border-color: var(--color-rosa); */
+        /* border: 1px solid var(--color-cinza); */
     }
 
+    input{
+        border-radius: 1rem;
+    }
+
+    div{
+        padding:0;
+    }
+    button{
+        font-family:var(--font-roboto); 
+        font-weight: bold;
+        border-radius: 0 1rem 1rem 0;
+        background: var(--color-rosa);
+        position: absolute;
+        width: 30%;
+        right: 0;
+        
+    }
+`;
+
+
+export const BotaoComprar = styled.div`
+    margin-top: 2rem;
+    display: flex;
+    cursor: pointer;
+    justify-content: space-between;
+
+    a button{
+        color: var(--color-secondary);
+
+        &:focus, &:hover {
+            /* border: 1px solid var(--color-branco); */
+        }
+    }
     
 `;
