@@ -20,7 +20,8 @@ import {
     CarrinhoIcon,
     HeaderTop,
     RedesSociais,
-    Contatos
+    Contatos,
+    Nav
 } from './styles';
 import Input from '../Input';
 
@@ -60,7 +61,13 @@ const Header: React.FC = () => {
 
                     <nav>
                         <p> <FaRegUser /> Minha Conta</p>
-                        {/* <Link to="/criar-conta">Criar conta</Link> | <Link to="/login">Login</Link> */}
+
+
+                        <Nav>
+
+                            <Link to="/login">Login</Link>
+                            <Link to="/cadastro">Criar conta</Link>
+                        </Nav>
                     </nav>
 
                     <CarrinhoIcon href="">

@@ -5,6 +5,7 @@ const GlobalStyle = createGlobalStyle`
   html{
     --color-boxshadow-cinza: #e2e2e2;
     --color-primary: #333;
+    --color-secondary: #000;
     --color-cinza: #b9afaf;
     --color-branco:  #fff;
     --color-boxshadow-cinzaescuro: #403b3b;
@@ -14,6 +15,7 @@ const GlobalStyle = createGlobalStyle`
     --color-youtube: #0a95b8;
     --color-backgroundblack: #282c34;
     --color-rosa : #fc5c94;
+    --font-oswald : "Oswald", Helvetica, Sans-Serif;
   
     
   }
@@ -32,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
   }
   a{
     text-decoration: none;
-    color: #333;
+    color: var(--color-primary);
     
   }
   p, ul, li, h3, h1, h5{
@@ -45,6 +47,11 @@ const GlobalStyle = createGlobalStyle`
   }
   li{
     list-style: none;
+  }
+
+  button{
+    border: none;
+    outline: none;
   }
 `;
 
@@ -75,6 +82,20 @@ export const AnimeLeft = styled.div`
   animation: ${animeLeft} .4s forwards;
 `;
 
+
+export const animeTop = keyframes`
+  to{
+    opacity: 1;
+    transform: initial;
+  }
+`
+
+export const AnimeTop = styled.div`
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: ${animeTop} .4s forwards;
+`;
+
 export const Content = styled.section`
     h3{
         text-align: center;
@@ -84,31 +105,12 @@ export const Content = styled.section`
     }
         max-width: 25rem;
         margin: auto;
-        border: 1px solid #b9afaf;
+        border: 1px solid var(--color-boxshadow-cinza);
         border-radius: .4rem;
     
    
 `;
 
-export const LoginContainer = styled.div`
-        padding: 1rem;
-        background: #e0e0e0;
-        box-shadow: -1px -1px 0 0 #b9afaf;
-        
-        p{
-            text-align: center;
-        }
-        a{
-            color: #007bff;
-            margin-left: .4rem;
-            font-weight: bold;
-            cursor: pointer;
-            &:hover{
-                text-decoration: underline;
-            }
-        }
-      
-`;
 
 export const DisplayFlex = styled.div`
     display: flex;

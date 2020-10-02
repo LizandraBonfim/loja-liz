@@ -1,8 +1,9 @@
 import React from 'react';
+import { AiOutlineDoubleRight } from 'react-icons/ai';
 import { MainContainer } from '../../global';
 import { Banner } from '../../components/Banner';
-
-// import { Container } from './styles';
+import Produtos from '../../components/Produtos';
+import { Titulo } from './styles';
 
 const Home: React.FC = () => {
     return (
@@ -11,7 +12,12 @@ const Home: React.FC = () => {
             <Banner />
             <MainContainer>
 
-                <h1>Home</h1>
+                <Titulo>
+                    <AiOutlineDoubleRight />
+                    <h1>Produtos Destaque</h1>
+                </Titulo>
+
+                <Produtos />
             </MainContainer>
         </>
     )

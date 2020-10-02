@@ -65,7 +65,7 @@ const Footer: React.FC = () => {
                     </Section>
 
                 </Content>
-            </Container>;
+            </Container>
         </FooterContainer>
     )
 }

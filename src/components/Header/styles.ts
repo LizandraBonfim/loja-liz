@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import banner from '../../assets/banner.jpg';
-import { Container } from '../../global';
+import { Container, AnimeTop } from '../../global';
 
 export const HeaderContainer = styled.header`
     box-shadow: 0px 1px 0 0 var(--color-boxshadow-cinza);
@@ -16,9 +15,9 @@ export const DisplayFlex = styled.div`
     span{
         background: var(--color-instagram);
         border-radius: 50%;
-        padding: 0 0.2rem;
-        top: 0px;
-        right: -3px;
+        padding: 0 0.3rem;
+        top: -7px;
+        right: -9px;
         color: var(--color-branco);
         position: absolute;
         font-size: 13px;
@@ -54,7 +53,7 @@ export const Content = styled(Container)`
 export const CarrinhoIcon = styled.a`
         transition: .3s;
         position: relative;
-             /* display: flex; */
+
         background: none;
         &:hover{
             text-decoration: underline;
@@ -72,7 +71,58 @@ export const CarrinhoIcon = styled.a`
         }
 `
 
+export const Nav = styled(AnimeTop)`
+background: white;
+padding: 1.5rem;
+position: absolute;
+z-index: 1000;
+box-shadow: 0px 0px 5px 1px var(--color-boxshadow-cinza);
+display: none;
+
+a{
+    display: grid;
+
+    &:first-child{
+        background: var(--color-secondary);
+        color: var(--color-branco);
+        text-align: center;
+        margin-bottom: .5rem;
+        padding: .5rem;
+    }
+
+    &:nth-child(2) {
+        &:hover  {
+            text-decoration: underline;
+        }
+    }
+   
+}
+
+
+&::before{
+    content: "";
+    display: inline-block;
+   
+    width: 0; 
+    height: 0; 
+    left: 50%;
+    top: -5px;
+    position: absolute;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid var(--color-boxshadow-cinza);
+}
+`;
+
 export const Carrinho = styled(DisplayFlex)`
+
+    cursor: pointer;
+
+    nav{
+        &:hover div{
+            display: block;
+        }
+    }
 `;
 
 export const HeaderTop = styled.nav`
@@ -108,10 +158,10 @@ export const RedesSociais = styled.ul`
                 color: var(--color-facebook);
             }
             &:nth-child(3){
-                color: var(--color-youtube);
+                color: var(--color-twitter);
             }
             &:nth-child(4){
-                color: var(--color-twitter);
+                color: var(--color-youtube);
             }
         }
            

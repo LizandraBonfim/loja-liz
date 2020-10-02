@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import GlobalStyle from './global';
+import ProdutoDetalhe from './components/Produtos/ProdutoDetalhe';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <main>
         <Switch>
           <Route path="/" component={Home} />
+          <Route path="/produto/:id" component={ProdutoDetalhe} />
         </Switch>
       </main>
       <Footer />
