@@ -134,7 +134,7 @@ export const HeaderTop = styled.nav`
 export const HeaderTopContent = styled(Container)`
     
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(8rem , 14rem) 1fr;
     padding: 0.4rem;
 `;
 

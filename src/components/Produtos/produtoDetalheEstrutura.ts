@@ -115,12 +115,14 @@ export const BotaoComprar = styled.div`
     cursor: pointer;
     justify-content: space-between;
 
-    a button{
-        color: var(--color-secondary);
+    a {        
 
-        &:focus, &:hover {
-            /* border: 1px solid var(--color-branco); */
+        &:nth-child(2) > button{
+            color: var(--color-rosa);
+            background: var(--color-branco);
+            border: 1px solid var(--color-rosa);
         }
+        
     }
     
 `;

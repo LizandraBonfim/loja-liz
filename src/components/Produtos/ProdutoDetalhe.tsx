@@ -59,7 +59,7 @@ const ProdutoDetalhe: React.FC = () => {
                             <h3>R$ 50,00</h3>
                         </Preco>
 
-                        <h3>Caneca porcelana com impressão térmica de alta resistência.</h3>
+                        <p>Caneca porcelana com impressão térmica de alta resistência.</p>
 
 
                         <p>Calculo frete</p>

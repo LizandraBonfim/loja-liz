@@ -36,6 +36,12 @@ svg > * {
   /* header{
     border-color: rgb(24, 26, 31);
   } */
+
+  ::placeholder{
+    font-family:  var(--font-oswald) ;
+    /* text-transform: uppercase; */
+  }
+
   input, button{
     width: 100%;
     display: block;
@@ -108,17 +114,42 @@ export const AnimeTop = styled.div`
 export const Content = styled.section`
     h3{
         text-align: center;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+
     }
     form{
         padding: 1rem;
+        
+        button{
+          margin-top: 2rem;
+        }
     }
-        max-width: 25rem;
+        max-width: 30rem;
         margin: auto;
-        border: 1px solid var(--color-boxshadow-cinza);
         border-radius: .4rem;
     
    
 `;
+
+export const LoginContainer = styled.div`
+        padding: 1rem;
+                
+        p{
+            text-align: center;
+        }
+        a{
+            color: #007bff;
+            margin-left: .4rem;
+            font-weight: bold;
+            cursor: pointer;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+      
+`;
+
 
 
 export const DisplayFlex = styled.div`
