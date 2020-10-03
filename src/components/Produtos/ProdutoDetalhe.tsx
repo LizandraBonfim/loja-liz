@@ -76,7 +76,7 @@ const ProdutoDetalhe: React.FC = () => {
                             </Link>
 
 
-                            <Link to="/">
+                            <Link to="/" >
                                 <Button>  Voltar</Button>
                             </Link>
                         </BotaoComprar>

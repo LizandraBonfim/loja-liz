@@ -83,18 +83,13 @@ export const CalculoFrete = styled.form`
     margin: 1rem 0;
     
 
-    input, button{
-        /* padding: .5rem; */
-        /* border-color: var(--color-rosa); */
-        /* border: 1px solid var(--color-cinza); */
-    }
-
     input{
         border-radius: 1rem;
     }
 
     div{
         padding:0;
+        width: 100%;
     }
     button{
         font-family:var(--font-roboto); 
@@ -115,12 +110,27 @@ export const BotaoComprar = styled.div`
     cursor: pointer;
     justify-content: space-between;
 
+    button{
+        transition: 0.6s;
+
+    }
+
     a {        
 
         &:nth-child(2) > button{
             color: var(--color-rosa);
             background: var(--color-branco);
-            border: 1px solid var(--color-rosa);
+            /* border: 1px solid var(--color-rosa);
+             */
+             box-shadow:inset 0px 0px 0px 1px;
+            transition: 0.6s;
+
+
+             &:hover{
+                transition: 0.6s;
+                box-shadow: 0px 0px 0px 1px var(--color-instagram), 0px 0px 16px 0px var(--color-rosa);
+
+             }
         }
         
     }

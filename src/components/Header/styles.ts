@@ -41,12 +41,44 @@ export const Content = styled(Container)`
     padding: 1rem 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 'input logo minhaconta meuspedidos';
     /* background: var(--color-branco); */
     margin-top: .1rem;
+
+    div:nth-child(1){
+        grid-area: input;
+
+    }
+    div:nth-child(2) > nav{
+        grid-area: minhaconta;
+
+    }
     img{
+        grid-area: logo;
         margin: auto;
         width: 4rem;
         display: block;
+    }
+
+    @media (max-width:40rem){
+        margin: 0 1rem;
+        
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        'logo', 'input', 'minhaconta ';
+
+        div:nth-child(1){
+        grid-area: input;
+
+        }
+        div:nth-child(2) > nav{
+            grid-area: minhaconta;
+
+        }
+        img{
+            grid-area: logo;
+        
+        }
     }
 `;
 
@@ -63,11 +95,9 @@ export const CarrinhoIcon = styled.a`
         }
         @media(max-width: 60rem){
             position: fixed;
-            background: var(--color-cinza);
             bottom: 1rem;
             z-index: 1000;
             right: 1rem;
-            box-shadow: 0px 0px 5px 1px var(--color-boxshadow-cinzaescuro);
         }
 `
 
@@ -136,6 +166,14 @@ export const HeaderTopContent = styled(Container)`
     display: grid;
     grid-template-columns: minmax(8rem , 14rem) 1fr;
     padding: 0.4rem;
+
+    @media (max-width: 40rem) {
+        grid-template-columns:  1fr;
+
+        ul{
+            display: none;
+        }
+    }
 `;
 
 export const RedesSociais = styled.ul`
@@ -206,8 +244,7 @@ input + label {
             position: absolute;
             height: 1rem;
             width: 1rem;
-            /* top: 2px; */
-            /* right: 0px; */
+            
             border-radius: 30px;
             background: var(--color-branco);
             box-shadow: inset 0 0 0 1px rgba(0,0,0,0.2), 0 2px 4px rgba(0,0,0,0.2);

@@ -20,10 +20,11 @@ export const ProdutoItem = styled.div`
         display: none;
         margin-top: 0;
         padding: .6rem;
+        border: 1px solid var(--color-secondary) ;
+        font-weight: bold;
     }
 
     &:hover  {
-       
             button{
                 transform: translateY(-20px);
                 animation: ${animeTop} .7s forwards;
@@ -31,6 +32,11 @@ export const ProdutoItem = styled.div`
                 background: var(--color-secondary);
                 color: var(--color-branco);
             
+        }
+
+        img{
+            opacity: .5;
+
         }
     }
 
@@ -57,6 +63,10 @@ export const DescricaoProduto = styled.div`
 
     span{
         font-size:.8rem;
+
+        strong{
+            margin: .2rem;
+        }
     }
 
     p{

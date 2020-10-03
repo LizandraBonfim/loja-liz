@@ -27,7 +27,7 @@ const Produto: React.FC = () => {
                             <span>
                                 <strong>4</strong>x  de
                                 <strong>R$10,00</strong>
-                                sem juros
+                                 sem juros
                             </span>
 
                             <p>Camisa 100% algodão</p>
