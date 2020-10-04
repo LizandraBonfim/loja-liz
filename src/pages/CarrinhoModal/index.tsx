@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { } from 'react-icons';
-import produto from '../../assets/produtos/caneca3.jpg';
+import Input from '../../components/Input';
+import Button from '../../components/Button';
 
 import { LojaContext } from '../../LojaContext';
 import { AnimeLeft } from '../../global';
@@ -8,11 +8,13 @@ import {
     Container,
     CarrinhoVazio,
     CarrinhoContainer,
-    ProdutoContainer,
-    BotaoQuantidade,
-    TituloCarrinho
+    TituloCarrinho,
+    DadosTotal,
+    BtnFinalizar,
+    ProdutosAdicionados
 } from './styles';
-import { FaTrashAlt } from 'react-icons/fa';
+import { CalculoFrete } from '../../components/Produtos/produtoDetalheEstrutura';
+import ItemCarrinho from '../../components/ItemCarrinho/ItemCarrinho';
 
 const CarrinhoModal: React.FC = () => {
 
@@ -31,39 +33,35 @@ const CarrinhoModal: React.FC = () => {
                         <p onClick={() => setCarrinhoVisivel(false)}>X</p>
                     </TituloCarrinho>
 
-                    <ProdutoContainer>
+                    <ProdutosAdicionados>
+                        <ItemCarrinho />
+                        <ItemCarrinho />
+                        <ItemCarrinho />
+                        <ItemCarrinho />
+                        <ItemCarrinho />
+                        <ItemCarrinho />
 
-                        <img src={produto} alt="produto" />
+                    </ProdutosAdicionados>
 
-                        <div>
-
-                            <div>
-                                <h5>Caneca</h5>
-                                <p>(P)</p>
-                                <strong>R$ 80,00</strong>
-
-                            </div>
-                            <BotaoQuantidade>
-
-
-                                <button>-</button>
-                                <p>1</p>
-                                <button>+</button>
-                            </BotaoQuantidade>
-
-                        </div>
-                        <div>
-                            <FaTrashAlt />
-                        </div>
-
-
-
-                    </ProdutoContainer>
 
                 </section>
+                <BtnFinalizar>
+                    <p>Calculo frete</p>
+                    <CalculoFrete>
+
+                        <Input type="text" nome="calculo" />
+                        <Button>  Calcular  </Button>
+                    </CalculoFrete>
+
+                    <DadosTotal>
+                        <p>Subtotal: <strong>R$179,90</strong></p>
+                        <p>Frete: <strong>Calcule para visualizar</strong></p>
+
+                    </DadosTotal>
+                    <Button>Finalizar compra</Button>
+                </BtnFinalizar>
             </CarrinhoContainer>
             {/* <CarrinhoVazio>O carrinho está vazio.</CarrinhoVazio> */}
-
 
 
 

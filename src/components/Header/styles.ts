@@ -77,6 +77,7 @@ export const Content = styled(Container)`
 export const CarrinhoIcon = styled.div`
         transition: .3s;
         position: relative;
+        
 
         background: none;
         &:hover{
@@ -90,6 +91,12 @@ export const CarrinhoIcon = styled.div`
             bottom: 1rem;
             z-index: 1000;
             right: 1rem;
+
+            background: var(--color-branco);
+            padding: 1rem;
+            border-radius: 50%;
+            box-shadow: -1px 1px 10px 2px var(--color-cinza);
+            border: 1px solid var( --color-cinza);
         }
 `
 

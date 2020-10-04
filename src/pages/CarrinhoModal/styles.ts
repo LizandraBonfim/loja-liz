@@ -11,6 +11,8 @@ export const Container = styled.div`
     z-index: 100;
     padding: 1rem;
 
+  
+
 `;
 
 export const CarrinhoContainer = styled.div`
@@ -25,6 +27,8 @@ export const CarrinhoContainer = styled.div`
       border-radius: .5rem;
       box-shadow: -1px 1px 7px var(--color-boxshadow-cinza);
 
+    
+
       @media (max-width: 40rem){
         width: 93%;
       }
@@ -34,42 +38,58 @@ export const TituloCarrinho = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-`;
 
-export const ProdutoContainer = styled.div`
-  display: grid ;
-  grid-template-columns: 1fr 1fr auto;
-  align-items: center;
-  gap:1rem;
-
-  
-`;
-
-export const BotaoQuantidade = styled.div`
-
-    display: flex;
-    border-radius: 1rem;
-    border: 1px solid var(--color-cinza);
-    padding: .2rem;
-
-    width: 75%;
-
-    button{
-      border-radius: 50%;
-      background: var(--color-rosa);
-      border: none;
-      cursor: pointer;
-      width: 20%;
-      font-weight: bold;
+    h1{
+      font-family: var(--font-oswald);
     }
+`;
 
+export const BtnFinalizar = styled.div`
+       
+        bottom: 3rem;
+        width: 91%;
+        left: 1rem;
+        position: absolute;
+     button{
+       
+        background: var(--color-secondary);
+      }
+`;
+
+export const DadosTotal = styled.div`
+
+      margin-bottom: 1rem;
     p{
-      /* padding: 0 2rem;     */
-      width: 60%;
-      text-align: center;
+
+      display: flex;
+      justify-content: space-between;
+
+      strong{color: var(--color-primary);}
     }
 `;
 
+export const ProdutosAdicionados = styled.section`
+    overflow-y: auto;
+    height: 22rem;
+    margin-top: 1rem;
+    
+    ::-webkit-scrollbar-track {
+      width: 6px;
+      background: var(--color-boxshadow-cinza);
+    }
+    ::-webkit-scrollbar {
+      width: .6rem;
+    }
+    ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: var(--color-rosa); 
+    /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);  */
+}
+
+    
+     
+`;
 
 export const CarrinhoVazio = styled.p`
   border-radius: 2.5rem;

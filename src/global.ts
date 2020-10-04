@@ -30,6 +30,16 @@ svg > * {
     padding: 0;
     font-family: var(--font-roboto);
     box-sizing: border-box;
+    
+    ::-webkit-scrollbar {
+      width: .6rem;
+    }
+
+    ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: var(--color-rosa); 
+    }
     /* background: #24292e; */
   }
 
