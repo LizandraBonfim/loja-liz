@@ -73,10 +73,9 @@ export const DadosTotal = styled.div`
 
 export const ProdutosAdicionados = styled.section`
     overflow-y: auto;
-    /* overflow-x: hidden; */
     grid-area: compras;
 
-    height: 53vh;
+    padding-right: .6rem;
     margin-top: 1rem;
     
     ::-webkit-scrollbar-track {
