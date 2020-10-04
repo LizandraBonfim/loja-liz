@@ -162,6 +162,8 @@ export const ColunaDois = styled.div`
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr 1fr;
+
+
 `;
 
 export default GlobalStyle; 

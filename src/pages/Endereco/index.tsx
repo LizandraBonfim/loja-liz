@@ -1,23 +1,25 @@
-import React, { FormEvent, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useForm as useForms } from "react-hook-form";
+
 import Input from '../../components/Input';
 import { MainContainer, AnimeLeft, ColunaDois, Content } from '../../global';
 import useForm from '../../hooks/useForm';
 import Select from '../../components/Select';
 import Button from '../../components/Button';
 
-// import { Container } from './styles';
+interface PropsCep {
+    bairro: string;
+    cep: string;
+    complemento: string;
+    localidade: string;
+    logradouro: string;
+    uf: string;
+}
+
 
 const Endereco: React.FC = () => {
 
-    const [subject, setSubject] = useState('');
-
-    console.log('subject', subject)
-
-    function handleSubmit(e: FormEvent) {
-        e.preventDefault();
-    };
-
-    const cep = useForm();
+    const cep = useForm("cep");
     const nome = useForm();
     const rua = useForm();
     const numero = useForm();
@@ -27,6 +29,46 @@ const Endereco: React.FC = () => {
     const municipio = useForm();
     const descricao = useForm();
 
+    const [subject, setSubject] = useState('');
+    const { register, handleSubmit } = useForms();
+    const [dadosCep, setDadosCep] = useState();
+    const [dados, setDados] = useState<PropsCep>({} as PropsCep);
+    console.log('subdadosCepject', dadosCep)
+
+    function FuncaoSubmit(e: any) {
+        e.preventDefault();
+    };
+
+
+    useEffect(() => {
+        async function getData() {
+            try {
+
+
+                if (!cep.isValid) return;
+                const result = await fetch(`https://viacep.com.br/ws/${cep.value}/json/`);
+                const jsonResult = await result.json();
+                console.log('jsonResult', result)
+
+                setDadosCep(jsonResult);
+
+                rua.setValue(jsonResult.logradouro)
+                municipio.setValue(jsonResult.localidade)
+                estado.setValue(jsonResult.uf)
+                bairro.setValue(jsonResult.bairro)
+
+                return;
+            } catch (error) {
+                console.log({ error: error });
+                return;
+
+            }
+        };
+
+        getData()
+    }, [cep.value]);
+
+
 
     return (
         <MainContainer>
@@ -34,16 +76,53 @@ const Endereco: React.FC = () => {
             <AnimeLeft>
                 <Content>
 
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit(FuncaoSubmit)}>
 
                         <h3>Cadastre um endereço</h3>
 
-                        <Input label="Nome do destinatário" type="text" nome="rua" {...nome} />
-                        <Input label="Rua" type="text" nome="rua" {...rua} />
+                        <Input
+                            label="Nome do destinatário"
+                            type="text"
+                            nome="nome"
+                            {...nome}
+                        />
 
                         <ColunaDois>
-                            <Input label="Cep" type="text" nome="cep" {...cep} />
-                            <Input label="Numero" type="text" nome="numero" {...numero} />
+                            <Input
+                                label="Cep"
+                                type="text"
+                                nome="cep"
+                                {...cep}
+                            />
+
+                            <Input
+                                label="Numero"
+                                type="text"
+                                nome="numero"
+                                {...numero}
+                            />
+
+                        </ColunaDois>
+
+                        <Input
+                            label="Rua"
+                            type="text"
+                            nome="rua"
+                            {...rua}
+                        />
+
+                        <ColunaDois>
+
+                            <Input
+                                label="Municipio"
+                                type="text" nome="municipio"
+                                {...municipio}
+                            />
+                            <Input
+                                label="Estado"
+                                type="text" nome="estado"
+                                {...estado}
+                            />
 
                         </ColunaDois>
 
@@ -62,21 +141,33 @@ const Endereco: React.FC = () => {
 
 
                         </Select>
-                        {subject === 'outro' && <AnimeLeft><Input label="Descrição" type="text" nome="descricao" {...descricao} /></AnimeLeft>}
+
+                        {subject === 'outro' && <AnimeLeft>
+                            <Input
+                                label="Descrição"
+                                type="text"
+                                nome="descricao"
+                                {...descricao}
+                            />
+                        </AnimeLeft>}
+
+
+
 
                         <ColunaDois>
-                            <Input label="Municipio" type="text" nome="municipio" {...municipio} />
-                            <Input label="Estado" type="text" nome="estado" {...estado} />
+                            <Input
+                                label="Complemento"
+                                type="text"
+                                nome="complemento"
+                                {...complemento}
+                            />
+                            <Input
+                                label="Bairro"
+                                type="text"
+                                nome="bairro"
+                                {...bairro}
+                            />
                         </ColunaDois>
-                        <ColunaDois>
-
-                        </ColunaDois>
-
-                        <Input label="Complemento" type="text" nome="complemento" {...complemento} />
-
-
-
-
 
 
                         <Button > Registrar </Button>
@@ -84,23 +175,13 @@ const Endereco: React.FC = () => {
                     </form>
 
 
-
-                    {/* <LoginContainer>
-                        <p>Já possui cadastro ?
-                    <Link to="/login" >Entrar </Link>
-                        </p>
-
-                        <p>Esqueceu a senha ?
-                <Link to="/login" > Clique aqui </Link>
-
-                        </p>
-
-                    </LoginContainer> */}
                 </Content>
             </AnimeLeft>
         </MainContainer>
 
     )
 }
+
+
 
 export default Endereco;

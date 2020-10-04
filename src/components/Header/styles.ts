@@ -36,6 +36,12 @@ export const DisplayFlex = styled.div`
     
 `;
 
+export const Img = styled.img`
+        grid-area: logo;
+        margin: auto;
+        width: 4rem;
+        display: block;
+`;
 
 export const Content = styled(Container)`
     padding: 1rem 0;
@@ -53,36 +59,22 @@ export const Content = styled(Container)`
         grid-area: minhaconta;
 
     }
-    img{
-        grid-area: logo;
-        margin: auto;
-        width: 4rem;
-        display: block;
-    }
+   
 
     @media (max-width:40rem){
         margin: 0 1rem;
         
         grid-template-columns: 1fr;
         grid-template-areas: 
-        'logo', 'input', 'minhaconta ';
+            'logo'
+            'input'
+            'minhaconta'
+        ;
 
-        div:nth-child(1){
-        grid-area: input;
-
-        }
-        div:nth-child(2) > nav{
-            grid-area: minhaconta;
-
-        }
-        img{
-            grid-area: logo;
-        
-        }
     }
 `;
 
-export const CarrinhoIcon = styled.a`
+export const CarrinhoIcon = styled.div`
         transition: .3s;
         position: relative;
 
@@ -102,7 +94,7 @@ export const CarrinhoIcon = styled.a`
 `
 
 export const Nav = styled(AnimeTop)`
-background: white;
+background: var(--color-branco);
 padding: 1.5rem;
 position: absolute;
 z-index: 1000;
@@ -142,6 +134,10 @@ a{
     border-right: 5px solid transparent;
     border-bottom: 5px solid var(--color-boxshadow-cinza);
 }
+
+    @media(max-width: 40rem){
+        margin-top: 1rem;
+    }
 `;
 
 export const Carrinho = styled(DisplayFlex)`
@@ -168,6 +164,7 @@ export const HeaderTopContent = styled(Container)`
     padding: 0.4rem;
 
     @media (max-width: 40rem) {
+        font-size: .8rem;
         grid-template-columns:  1fr;
 
         ul{

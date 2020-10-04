@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import {
     FaPhone,
@@ -24,11 +24,16 @@ import {
     RedesSociais,
     Contatos,
     Nav,
-    BotaoToggle
+    BotaoToggle,
+    Img
 } from './styles';
 import Input from '../Input';
+import CarrinhoModal from '../../pages/CarrinhoModal';
+import { LojaContext } from '../../LojaContext';
 
 const Header: React.FC = () => {
+
+    const { carrinhoVisivel, setCarrinhoVisivel } = useContext(LojaContext);
     return (
         <HeaderContainer>
 
@@ -62,7 +67,7 @@ const Header: React.FC = () => {
             <Content>
                 <Input nome="pesquisa" type="text" placeholder="Pesquise.." />
                 <Link to="/">
-                    <img src={logo} alt="Logo" />
+                    <Img src={logo} alt="Logo" />
                 </Link>
 
                 <Carrinho>
@@ -79,12 +84,16 @@ const Header: React.FC = () => {
                         </Nav>
                     </nav>
 
-                    <CarrinhoIcon href="">
+                    <div>
 
-                        <FaShoppingBag size={20} color={'#b9afaf'} />
+                        <CarrinhoIcon onClick={() => setCarrinhoVisivel(true)}>
 
-                        <span>0</span>
-                    </CarrinhoIcon>
+                            <FaShoppingBag size={20} />
+
+                            <span>0</span>
+                            {carrinhoVisivel && <CarrinhoModal />}
+                        </CarrinhoIcon>
+                    </div>
 
 
                 </Carrinho>

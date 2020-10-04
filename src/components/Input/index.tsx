@@ -11,6 +11,7 @@ interface InputProps {
     onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
     erro?: string;
     placeholder?: string;
+    ref?: any;
 }
 
 const Input: React.FC<InputProps> = ({

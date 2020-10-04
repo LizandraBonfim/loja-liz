@@ -8,22 +8,27 @@ import ProdutoDetalhe from './components/Produtos/ProdutoDetalhe';
 import Cadastro from './pages/Cadastro';
 import Login from './pages/Login';
 import Endereco from './pages/Endereco';
+import ContainerLoja from './LojaContext';
+
 
 function App() {
   return (
     <BrowserRouter>
       <GlobalStyle />
-      <Header />
-      <main>
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/produto/:id" component={ProdutoDetalhe} />
-          <Route path="/cadastro" component={Cadastro} />
-          <Route path="/endereco" component={Endereco} />
-          <Route path="/login" component={Login} />
-        </Switch>
-      </main>
-      <Footer />
+      <ContainerLoja>
+        <Header />
+
+        <main>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/produto/:id" component={ProdutoDetalhe} />
+            <Route path="/cadastro" component={Cadastro} />
+            <Route path="/endereco" component={Endereco} />
+            <Route path="/login" component={Login} />
+          </Switch>
+        </main>
+        <Footer />
+      </ContainerLoja >
     </BrowserRouter>
   );
 }

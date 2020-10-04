@@ -1,8 +1,11 @@
 import React, { useState, Dispatch, SetStateAction, ChangeEvent } from 'react';
 
+const defaultFunction = (value: string) => value;
+
 interface ValidatorBase {
-    regex: RegExp,
+    regex: RegExp;
     message: string;
+    mask: (valor: string) => string;
 }
 
 interface ValidatorType {
@@ -13,30 +16,44 @@ const validators: ValidatorType =
 {
     login: {
         regex: /.{3}/,
-        message: 'Campo deve conter mais de 3 caracteres'
+        message: 'Campo deve conter mais de 3 caracteres',
+        mask: defaultFunction
     },
 
     senha: {
         regex: /.{3}/,
-        message: 'Campo deve conter mais de 3 caracteres'
+        message: 'Campo deve conter mais de 3 caracteres',
+        mask: defaultFunction
     },
 
     email: {
         regex: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-        message: 'Preencha um email válido'
+        message: 'Preencha um email válido',
+        mask: defaultFunction
     },
     number: {
         regex: /^\d{1,}$/,
-        message: 'Utilize apenas numeros'
+        message: 'Utilize apenas numeros',
+        mask: defaultFunction
+    },
+    cep: {
+        regex: /^\d{8}$/,
+        message: 'Deve ser informado Cep válido',
+        mask: function (valor: string) {
+
+            return valor.replace(/\s/g, "").match(/.{1,5}/g)?.join("-").substr(0, 9) || "";
+
+        }
     }
 };
 
 
-type typeInput = 'nome' | 'email' | 'number' | 'login' | 'senha' | undefined;
+type typeInput = 'nome' | 'email' | 'number' | 'login' | 'senha' | 'cep' | undefined;
 
 interface Response {
 
     value: any;
+    setValue: any;
     erro: string | undefined;
     isValid: () => boolean;
     onBlur: () => boolean;
@@ -69,10 +86,12 @@ const useForm = (type: typeInput = undefined): Response => {
         }
 
         if (validationExist(type) && didNotPassTheRegex(type, value)) {
-
             setError(validators[type].message);
             return false;
         }
+
+
+
 
         setError(undefined);
         return true;
@@ -81,6 +100,14 @@ const useForm = (type: typeInput = undefined): Response => {
 
 
     function onChange({ target }: ChangeEvent<HTMLInputElement>): void {
+
+        if (type) {
+            const mask = validators[type].mask(target.value);
+            //setValue(mask);
+        }
+
+
+
 
         if (erro)
             isValid(target.value)
@@ -92,6 +119,7 @@ const useForm = (type: typeInput = undefined): Response => {
 
     return {
         value,
+        setValue,
         erro,
         onChange,
         isValid: () => isValid(value),
