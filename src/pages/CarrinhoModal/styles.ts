@@ -74,7 +74,11 @@ export const DadosTotal = styled.div`
 export const ProdutosAdicionados = styled.section`
     overflow-y: auto;
     grid-area: compras;
-
+    
+    > div + div{
+      border-top: 1px dashed var(--color-boxshadow-cinza);
+    }
+    
     padding-right: .6rem;
     margin-top: 1rem;
     
