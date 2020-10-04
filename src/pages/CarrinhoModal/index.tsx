@@ -33,18 +33,18 @@ const CarrinhoModal: React.FC = () => {
                         <p onClick={() => setCarrinhoVisivel(false)}>X</p>
                     </TituloCarrinho>
 
-                    <ProdutosAdicionados>
-                        <ItemCarrinho />
-                        <ItemCarrinho />
-                        <ItemCarrinho />
-                        <ItemCarrinho />
-                        <ItemCarrinho />
-                        <ItemCarrinho />
-
-                    </ProdutosAdicionados>
 
 
                 </section>
+                <ProdutosAdicionados>
+                    <ItemCarrinho />
+                    <ItemCarrinho />
+                    <ItemCarrinho />
+                    <ItemCarrinho />
+                    <ItemCarrinho />
+                    <ItemCarrinho />
+
+                </ProdutosAdicionados>
                 <BtnFinalizar>
                     <p>Calculo frete</p>
                     <CalculoFrete>

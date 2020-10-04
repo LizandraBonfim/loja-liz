@@ -26,7 +26,12 @@ export const CarrinhoContainer = styled.div`
       padding: 1rem;
       border-radius: .5rem;
       box-shadow: -1px 1px 7px var(--color-boxshadow-cinza);
-
+      display: grid;
+      grid-template-areas: 
+            'titulo'
+            'compras'
+            'footer'
+        ;
     
 
       @media (max-width: 40rem){
@@ -38,6 +43,7 @@ export const TituloCarrinho = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    grid-area: titulo;
 
     h1{
       font-family: var(--font-oswald);
@@ -45,11 +51,8 @@ export const TituloCarrinho = styled.div`
 `;
 
 export const BtnFinalizar = styled.div`
+        grid-area: footer;
        
-        bottom: 3rem;
-        width: 91%;
-        left: 1rem;
-        position: absolute;
      button{
        
         background: var(--color-secondary);
@@ -70,7 +73,10 @@ export const DadosTotal = styled.div`
 
 export const ProdutosAdicionados = styled.section`
     overflow-y: auto;
-    height: 22rem;
+    /* overflow-x: hidden; */
+    grid-area: compras;
+
+    height: 53vh;
     margin-top: 1rem;
     
     ::-webkit-scrollbar-track {
