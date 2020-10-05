@@ -4,9 +4,9 @@ import { AnimeLeft } from '../../global';
 
 export const ProdutoContainer = styled(AnimeLeft)`
   display: grid ;
-  grid-template-columns: 1fr 1fr auto;
+  grid-template-columns: 1fr auto auto;
   align-items: center;
-  gap:1rem;
+  gap:3rem;
   
 `;
 

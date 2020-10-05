@@ -7,8 +7,20 @@ export const Preco = styled.div`
 
 export const DetalhesProduto = styled.div`
 
+    /* margin-bottom: 1rem; */
+    margin: .5rem 0;
+
 `;
 
+export const ProdutoImagem = styled.div`
+    height: 15rem;
+    padding: .5rem;
+
+    img{
+        max-height: 100%;
+        object-fit: contain;
+    }
+`;
 
 
 export const ProdutoItem = styled.div`
@@ -59,6 +71,7 @@ export const DescricaoProduto = styled.div`
 
     h4{
         font-family: var(--font-oswald);
+        height: 4rem;
     }
 
     span{

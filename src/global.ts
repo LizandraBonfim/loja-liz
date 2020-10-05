@@ -86,7 +86,7 @@ svg > * {
 `;
 
 export const Container = styled.section`
-     max-width: 50rem;
+    max-width: 65rem;
     padding: 0 1rem;
     margin: 0 auto;
 `;

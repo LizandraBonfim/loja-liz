@@ -36,7 +36,7 @@ const ItemCarrinho: React.FC = () => {
 
             </div>
             <Lixeira>
-                <FcFullTrash />
+                <FcFullTrash size={24} />
             </Lixeira>
         </ProdutoContainer>
     )

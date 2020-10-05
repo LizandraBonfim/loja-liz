@@ -5,8 +5,13 @@ import { DisplayFlex } from '../Header/styles';
 export const Container = styled.div`
     border: 1px solid #eee;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(27rem,1fr) minmax(29rem,2fr);
+    gap: 2rem;
 
+    section:first-child{
+        margin: auto;
+        padding: 1rem;
+    }
 
     h1{
         font-size: 2rem;

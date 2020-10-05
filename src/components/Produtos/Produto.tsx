@@ -1,47 +1,84 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import camisa1 from '../../assets/produtos/camiseta1.jpg';
-import { ProdutoItem, DescricaoProduto, Preco, DetalhesProduto } from './ProdutoEstrutura'
+import {
+    ProdutoItem,
+    DescricaoProduto,
+    Preco,
+    DetalhesProduto,
+    ProdutoImagem
+} from './ProdutoEstrutura'
+import api from '../../service/api';
+import { LojaContext } from '../../LojaContext';
 
 const Produto: React.FC = () => {
 
+    const { produtos, setProdutos } = useContext(LojaContext);
+
+    useEffect(() => {
+        async function getData() {
+            try {
+
+
+                const response = await api.get('/produtos');
+                const json = await response.data;
+                console.log('jsonResult', response)
+
+                setProdutos(json);
+
+                return;
+            } catch (error) {
+                console.log({ error: error });
+                return;
+
+            }
+        };
+
+        getData()
+    }, []);
+
+    if (!produtos) return null;
+
     return (
-        <Link to="/produto/camisa1">
+        <>
+            {produtos && produtos.map(item => (
 
-            <ProdutoItem>
-                <div>
-                    <img src={camisa1} alt="Camisa 1" />
-                </div>
-
-
-                <DescricaoProduto>
-                    <div>
-                        <h4>Camisa Cinza</h4>
-
-                        <Preco>
-                            <h3>R$ 80,00</h3>
-                        </Preco>
-
-                        <DetalhesProduto>
-
-                            <span>
-                                <strong>4</strong>x  de
-                                <strong>R$10,00</strong>
-                                 sem juros
-                            </span>
-
-                            <p>Camisa 100% algodão</p>
-                        </DetalhesProduto>
-                    </div>
-                </DescricaoProduto>
+                <ProdutoItem key={item.id}>
+                    <Link to={`/produto/${item.id}`} >
+                        <ProdutoImagem>
+                            <img src={item.image} alt={item.title} />
+                        </ProdutoImagem>
 
 
-                <button> Comprar </button>
+                        <DescricaoProduto>
+                            <div>
+                                <h4>{item.title} </h4>
+
+                                <Preco>
+                                    <h3>R$ {item.price}</h3>
+                                </Preco>
+
+                                <DetalhesProduto>
+
+                                    <span>
+                                        <strong>4</strong>x  de
+                                        <strong>R$10,00</strong>
+                                        sem juros
+                                    </span>
+
+                                    {/* <p>{item.description}</p> */}
+                                </DetalhesProduto>
+                            </div>
+                        </DescricaoProduto>
 
 
-            </ProdutoItem>
+                        <button> Comprar </button>
 
-        </Link>
+                    </Link>
+
+                </ProdutoItem>
+
+            ))}
+        </>
 
 
     )
