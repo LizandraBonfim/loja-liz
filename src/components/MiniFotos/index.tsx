@@ -3,13 +3,14 @@ import camisa1 from '../../assets/produtos/camiseta1.jpg';
 
 import { Container } from './styles';
 
-const MiniFotos: React.FC = () => {
+interface ImageProps {
+    src: any
+}
+
+const MiniFotos: React.FC<ImageProps> = ({ src }) => {
     return (
         <Container>
-            <img src={camisa1} alt="" />
-            <img src={camisa1} alt="" />
-            <img src={camisa1} alt="" />
-            <img src={camisa1} alt="" />
+            <img src={src} alt="" />
         </Container>
 
     )

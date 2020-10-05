@@ -12,7 +12,8 @@ import {
     QtdEstoque,
     CalculoFrete,
     DetalhesCompra,
-    BotaoComprar
+    BotaoComprar,
+    ProdutoDetalheContainer
 } from './produtoDetalheEstrutura';
 import { Preco } from './ProdutoEstrutura';
 import MiniFotos from '../MiniFotos';
@@ -65,66 +66,69 @@ const ProdutoDetalhe: React.FC = () => {
             <AnimeLeft>
 
                 {produto && produto.map(item => (
+                    <ProdutoDetalheContainer>
 
-                    <Container key={item.id}>
-                        <section>
-                            <img src={item.image} alt={item.title} />
-                        </section>
+                        <Container key={item.id}>
+                            <section>
+                                <img src={item.image} alt={item.title} />
+                            </section>
 
-                        <DetalhesCompra>
-                            <h1>{item.title}</h1>
+                            <DetalhesCompra>
+                                <h1>{item.title}</h1>
 
-                            <Avaliacao>
+                                <Avaliacao>
 
-                                <div>
-                                    <FaStar />
-                                    <FaStar />
-                                    <FaStar />
-                                    <FaStar />
-                                    <FaStar />
+                                    <div>
+                                        <FaStar />
+                                        <FaStar />
+                                        <FaStar />
+                                        <FaStar />
+                                        <FaStar />
 
-                                </div>
+                                    </div>
 
-                                <p>123 Avaliações</p>
+                                    <p>123 Avaliações</p>
 
-                                <QtdEstoque>
-                                    <FcChargeBattery />
+                                    <QtdEstoque>
+                                        <FcChargeBattery />
 
-                                    <p> 152 Vendidos</p>
+                                        <p> 152 Vendidos</p>
 
-                                </QtdEstoque>
+                                    </QtdEstoque>
 
-                            </Avaliacao>
-                            <Preco>
+                                </Avaliacao>
+                                <Preco>
 
-                                <h3>R$ {item.price}</h3>
-                            </Preco>
+                                    <h3>R$ {item.price}</h3>
+                                </Preco>
 
-                            <p>{item.description}</p>
-
-
-                            <p>Calculo frete</p>
-                            <CalculoFrete>
-
-                                <Input type="text" nome="calculo" />
-                                <Button>  Calcular  </Button>
-                            </CalculoFrete>
-
-                            <BotaoComprar>
-                                <Link to="/">
-                                    <Button>  Adicionar ao Carrinho</Button>
-                                </Link>
+                                <p>{item.description}</p>
 
 
-                                <Link to="/" >
-                                    <Button>  Voltar</Button>
-                                </Link>
-                            </BotaoComprar>
-                        </DetalhesCompra>
+                                <p>Calculo frete</p>
+                                <CalculoFrete>
 
-                    </Container>
+                                    <Input type="text" nome="calculo" />
+                                    <Button>  Calcular  </Button>
+                                </CalculoFrete>
+
+                                <BotaoComprar>
+                                    <Link to="/">
+                                        <Button>  Adicionar ao Carrinho</Button>
+                                    </Link>
+
+
+                                    <Link to="/" >
+                                        <Button>  Voltar</Button>
+                                    </Link>
+                                </BotaoComprar>
+                            </DetalhesCompra>
+
+                        </Container>
+                        <MiniFotos src={item.image} />
+                    </ProdutoDetalheContainer>
+
                 ))}
-                <MiniFotos />
 
 
 

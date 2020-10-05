@@ -3,6 +3,8 @@ import { animeTop } from '../../global';
 
 export const Preco = styled.div`
    color: var(--color-rosa);
+
+  
 `;
 
 export const DetalhesProduto = styled.div`
@@ -20,13 +22,18 @@ export const ProdutoImagem = styled.div`
         max-height: 100%;
         object-fit: contain;
     }
+
+    @media(max-width: 40rem){
+        height: 10rem;
+
+    }
 `;
 
 
 export const ProdutoItem = styled.div`
     border: 1px solid #eee;
     transition: .2s;
-    
+    padding: .1rem;
 
     button{
         display: none;
@@ -43,6 +50,7 @@ export const ProdutoItem = styled.div`
                 display: block;
                 background: var(--color-secondary);
                 color: var(--color-branco);
+                cursor: pointer;
             
         }
 
@@ -64,7 +72,7 @@ export const ProdutoItem = styled.div`
 
 
 export const DescricaoProduto = styled.div`
-    padding: .6rem;
+    /* padding: .6rem; */
     text-align: center;
     color: var(--color-secondary);
     background: var(--color-branco);
@@ -72,6 +80,8 @@ export const DescricaoProduto = styled.div`
     h4{
         font-family: var(--font-oswald);
         height: 4rem;
+        margin: 0.4rem;
+        font-weight: 500;
     }
 
     span{
@@ -85,5 +95,17 @@ export const DescricaoProduto = styled.div`
     p{
         color: #4c4c4c;
     }
+
+    @media(max-width: 40rem){
+    h4{
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        word-break: break-word;
+        overflow: hidden;
+        height: 3rem;
+    }
+  
+   }
 `;
 

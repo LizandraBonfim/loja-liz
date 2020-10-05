@@ -1,12 +1,14 @@
 import React, { createContext, useState, Dispatch, SetStateAction } from 'react';
 
 interface Props {
-    carrinhoVisivel: boolean;
     setCarrinhoVisivel: Dispatch<SetStateAction<boolean>>;
     setProdutos: Dispatch<SetStateAction<any[]>>;
+    setLogin: Dispatch<SetStateAction<boolean>>;
+    setCarrinhos: Dispatch<SetStateAction<any[]>>;
+    carrinhoVisivel: boolean;
+    carrinhos: any[];
     produtos: any[];
     login: boolean;
-    setLogin: Dispatch<SetStateAction<boolean>>;
 }
 
 export const LojaContext = createContext<Props>({} as Props);
@@ -17,6 +19,7 @@ const ContainerLoja: React.FC = ({ children }) => {
     // const [restaurante, setRestaurante] = useState();
 
     const [produtos, setProdutos] = useState<any[]>([]);
+    const [carrinhos, setCarrinhos] = useState<any[]>([]);
     const [login, setLogin] = useState(false);
 
 
@@ -28,7 +31,9 @@ const ContainerLoja: React.FC = ({ children }) => {
             produtos,
             setProdutos,
             login,
-            setLogin
+            setLogin,
+            setCarrinhos,
+            carrinhos
         }}>
             {children}
         </LojaContext.Provider>

@@ -10,6 +10,7 @@ export const Container = styled.div`
 
     box-shadow: 0px 0px 3px var(--color-cinza);
     cursor: pointer;
+    padding: 0.5rem;
 
     &:hover{
         box-shadow: 0px 0px 3px var(--color-rosa);

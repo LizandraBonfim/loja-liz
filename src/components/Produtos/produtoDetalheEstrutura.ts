@@ -2,6 +2,10 @@ import styled from 'styled-components';
 // import { darken } from 'polished';
 import { DisplayFlex } from '../Header/styles';
 
+export const ProdutoDetalheContainer = styled.div`
+    
+`;
+
 export const Container = styled.div`
     border: 1px solid #eee;
     display: grid;
