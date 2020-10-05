@@ -1,11 +1,16 @@
 import React from 'react';
 import produto from '../../assets/produtos/caneca3.jpg';
 
+import { FcFullTrash } from 'react-icons/fc';
+import { FaMinus } from 'react-icons/fa';
+import { BiMinus } from 'react-icons/bi';
 import {
     ProdutoContainer,
-    BotaoQuantidade
+    BotaoQuantidade,
+    Lixeira
 } from './styles';
-import { FaTrashAlt } from 'react-icons/fa';
+import { FaTrashAlt, FaPlus } from 'react-icons/fa';
+import { GrFormSubtract } from 'react-icons/gr';
 
 const ItemCarrinho: React.FC = () => {
     return (
@@ -16,7 +21,7 @@ const ItemCarrinho: React.FC = () => {
             <div>
 
                 <div>
-                    <h5>Caneca</h5>
+                    <h3>Caneca</h3>
                     <p>(P)</p>
                     <strong>R$ 80,00</strong>
 
@@ -24,15 +29,15 @@ const ItemCarrinho: React.FC = () => {
                 <BotaoQuantidade>
 
 
-                    <button>-</button>
+                    <button><FaMinus size={29} /></button>
                     <p>1</p>
-                    <button>+</button>
+                    <button><FaPlus size={30} /></button>
                 </BotaoQuantidade>
 
             </div>
-            <div>
-                <FaTrashAlt />
-            </div>
+            <Lixeira>
+                <FcFullTrash />
+            </Lixeira>
         </ProdutoContainer>
     )
 }

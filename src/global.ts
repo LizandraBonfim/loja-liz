@@ -1,4 +1,16 @@
-import styled, { createGlobalStyle, keyframes } from 'styled-components';
+import styled, { createGlobalStyle, keyframes, css } from 'styled-components';
+
+export const EstiloScroll = css`
+     ::-webkit-scrollbar {
+      width: .6rem;
+    }
+
+    ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: var(--color-rosa); 
+    }
+`;
 
 const GlobalStyle = createGlobalStyle`
 
@@ -30,16 +42,8 @@ svg > * {
     padding: 0;
     font-family: var(--font-roboto);
     box-sizing: border-box;
-    
-    ::-webkit-scrollbar {
-      width: .6rem;
-    }
-
-    ::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    background: var(--color-rosa); 
-    }
+    ${EstiloScroll}
+ 
     /* background: #24292e; */
   }
 
@@ -77,7 +81,7 @@ svg > * {
     list-style: none;
   }
 
- 
+
 
 `;
 

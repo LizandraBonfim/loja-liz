@@ -9,7 +9,7 @@ import Select from '../../components/Select';
 
 const Cadastro: React.FC = () => {
     const [subject, setSubject] = useState('');
-    const nome = useForm();
+    const nome = useForm("campoTexto");
     const email = useForm("email");
     const senha = useForm("senha");
     const cpf = useForm();

@@ -14,6 +14,24 @@ interface ValidatorType {
 
 const validators: ValidatorType =
 {
+    numeroResidencia: {
+        regex: /.{1,}/,
+        message: 'Campo deve conter mais de 1 caracteres',
+        mask: defaultFunction
+
+    },
+    estado: {
+        regex: /\w{2,}/,
+        message: 'Campo deve conter mais de 1 caracteres',
+        mask: defaultFunction
+
+    },
+
+    campoTexto: {
+        regex: /.{3}/,
+        message: 'Campo deve conter mais de 3 caracteres',
+        mask: defaultFunction
+    },
     login: {
         regex: /.{3}/,
         message: 'Campo deve conter mais de 3 caracteres',
@@ -48,7 +66,7 @@ const validators: ValidatorType =
 };
 
 
-type typeInput = 'nome' | 'email' | 'number' | 'login' | 'senha' | 'cep' | undefined;
+type typeInput = 'nome' | 'email' | 'number' | 'login' | 'senha' | 'cep' | 'campoTexto' | 'numeroResidencia' | 'estado' | undefined;
 
 interface Response {
 
@@ -116,10 +134,14 @@ const useForm = (type: typeInput = undefined): Response => {
 
     }
 
+    function PreenchidosAutomaticamente(x: any) {
+        setValue(x);
+        isValid(x);
+    }
 
     return {
         value,
-        setValue,
+        setValue: PreenchidosAutomaticamente,
         erro,
         onChange,
         isValid: () => isValid(value),

@@ -9,6 +9,7 @@ import Cadastro from './pages/Cadastro';
 import Login from './pages/Login';
 import Endereco from './pages/Endereco';
 import ContainerLoja from './LojaContext';
+import ConfirmarPedidos from './pages/ConfirmarPedidos';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route path="/cadastro" component={Cadastro} />
             <Route path="/endereco" component={Endereco} />
             <Route path="/login" component={Login} />
+            <Route path="/finalizar" component={ConfirmarPedidos} />
           </Switch>
         </main>
         <Footer />

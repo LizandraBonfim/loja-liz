@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { AnimeLeft, EstiloScroll } from '../../global';
 
 export const Container = styled.div`
     
@@ -15,7 +16,8 @@ export const Container = styled.div`
 
 `;
 
-export const CarrinhoContainer = styled.div`
+
+export const CarrinhoContainer = styled(AnimeLeft)`
      position: fixed;
       height: 100%;
       width: 30%;
@@ -25,6 +27,7 @@ export const CarrinhoContainer = styled.div`
       z-index: 100;
       padding: 1rem;
       border-radius: .5rem;
+      gap:1rem;
       box-shadow: -1px 1px 7px var(--color-boxshadow-cinza);
       display: grid;
       grid-template-areas: 
@@ -52,7 +55,7 @@ export const TituloCarrinho = styled.div`
 
 export const BtnFinalizar = styled.div`
         grid-area: footer;
-       
+        margin-bottom: 2rem;
      button{
        
         background: var(--color-secondary);
@@ -82,20 +85,14 @@ export const ProdutosAdicionados = styled.section`
     padding-right: .6rem;
     margin-top: 1rem;
     
+    ${EstiloScroll}
+
     ::-webkit-scrollbar-track {
       width: 6px;
       background: var(--color-boxshadow-cinza);
     }
-    ::-webkit-scrollbar {
-      width: .6rem;
-    }
-    ::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    background: var(--color-rosa); 
+    
     /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);  */
-}
-
     
      
 `;

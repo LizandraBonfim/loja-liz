@@ -20,13 +20,13 @@ interface PropsCep {
 const Endereco: React.FC = () => {
 
     const cep = useForm("cep");
-    const nome = useForm();
-    const rua = useForm();
+    const nome = useForm("campoTexto");
+    const rua = useForm("campoTexto");
     const numero = useForm();
     const complemento = useForm();
-    const bairro = useForm();
-    const estado = useForm();
-    const municipio = useForm();
+    const bairro = useForm("campoTexto");
+    const estado = useForm("estado");
+    const municipio = useForm("campoTexto");
     const descricao = useForm();
 
     const [subject, setSubject] = useState('');
