@@ -2,8 +2,12 @@ import styled from 'styled-components';
 import { EstiloScroll } from '../../global';
 
 export const Container = styled.section`
+
+
+margin: 3rem;
+
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(32rem,1fr) 2fr;
   grid-template-areas: 
   ' endereco pedidoscarrinho'
   ' dadoscartao  pedidoscarrinho '
@@ -95,12 +99,18 @@ export const CarrinhoContainer = styled.section`
     grid-area: pedidoscarrinho;
     /* grid-column: 1/2; */
     overflow-y: auto;
+    margin-top: 2rem;
+
     padding: 0 1rem;
     ${EstiloScroll}
 
         ::-webkit-scrollbar-track {
-        width: 6px;
-        background: var(--color-boxshadow-cinza);
+            width: 6px;
+            background: var(--color-boxshadow-cinza);
+        }
+
+        > section + section{
+            border-top: 1px dashed var(--color-cinza);
         }
 `;
 

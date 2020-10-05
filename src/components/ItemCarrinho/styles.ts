@@ -58,3 +58,14 @@ export const Lixeira = styled.div`
     fill: rgb(179, 157, 219);
   }
 `;
+
+export const ProdutoFinalizar = styled.section`
+    display: grid ;
+    gap: 1rem;
+    grid-template-columns: minmax(3rem, 9rem) 1fr auto auto auto;
+    margin-bottom: 2rem;
+    align-items: center;
+
+ 
+
+`;
