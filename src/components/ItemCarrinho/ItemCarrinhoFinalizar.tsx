@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import produto from '../../assets/produtos/caneca3.jpg';
 
 import { FcFullTrash } from 'react-icons/fc';
@@ -11,33 +11,44 @@ import {
 } from './styles';
 import { FaTrashAlt, FaPlus } from 'react-icons/fa';
 import { GrFormSubtract } from 'react-icons/gr';
+import { LojaContext } from '../../LojaContext';
 
 const ItemCarrinhoFinalizar: React.FC = () => {
+
+    const { carrinhoVisivel, setCarrinhoVisivel, carrinhos, produtosAdicionados } = useContext(LojaContext);
+
     return (
-        <ProdutoFinalizar>
 
-            <img src={produto} alt="produto" />
+        <>
 
+            {produtosAdicionados.map(item => (
 
-            <div>
-                <p>Caneca</p>
-                <p>(P)</p>
-            </div>
+                <ProdutoFinalizar key={item.id}>
 
-            <div>
-                <strong>R$ 80,00</strong>
-            </div>
+                    <img src={item.image} alt="produto" />
 
-            <BotaoQuantidade>
-                <button><FaMinus size={20} /></button>
-                <p>1</p>
-                <button><FaPlus size={20} /></button>
-            </BotaoQuantidade>
+                    <div>
+                        <p>{item.title} </p>
+                        <p>(P)</p>
+                    </div>
 
-            <Lixeira>
-                <FcFullTrash size={30} />
-            </Lixeira>
-        </ProdutoFinalizar>
+                    <div>
+                        <strong>R$ {item.price} </strong>
+                    </div>
+
+                    <BotaoQuantidade>
+                        <button><FaMinus size={20} /></button>
+                        <p>{item.qtd}</p>
+                        <button><FaPlus size={20} /></button>
+                    </BotaoQuantidade>
+
+                    <Lixeira>
+                        <FcFullTrash size={30} />
+                    </Lixeira>
+                </ProdutoFinalizar>
+
+            ))};
+        </>
     )
 }
 

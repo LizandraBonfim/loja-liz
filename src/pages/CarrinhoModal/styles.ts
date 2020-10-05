@@ -18,9 +18,10 @@ export const Container = styled.div`
 
 
 export const CarrinhoContainer = styled(AnimeLeft)`
-     position: fixed;
+      box-sizing: border-box;
+      position: fixed;
       height: 100%;
-      width: 37%;
+      width: 25%;
       background: var(--color-branco);
       top: 0;
       right: 0;

@@ -39,16 +39,15 @@ const ItemCarrinho: React.FC<ProdutoProps> = ({ itemsCarrinhos }) => {
             <div>
 
                 <div>
-                    <h3>{itemsCarrinhos.title}</h3>
+                    <p>{itemsCarrinhos.title}</p>
                     {/* <p>(P)</p> */}
                     <strong>R$ {itemsCarrinhos.price}</strong>
 
                 </div>
+
                 <BotaoQuantidade>
-
-
                     <button><FaMinus size={20} /></button>
-                    <p>1</p>
+                    <p>{itemsCarrinhos.qtd}</p>
                     <button><FaPlus size={20} /></button>
                 </BotaoQuantidade>
 

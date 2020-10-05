@@ -111,6 +111,7 @@ export const CarrinhoContainer = styled.section`
 
         > section + section{
             border-top: 1px dashed var(--color-cinza);
+            padding-top: 1rem;
         }
 `;
 

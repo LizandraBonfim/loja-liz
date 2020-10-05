@@ -20,8 +20,7 @@ import ItemCarrinho from '../../components/ItemCarrinho/ItemCarrinho';
 
 const CarrinhoModal: React.FC = () => {
     const history = useHistory();
-    const { carrinhoVisivel, setCarrinhoVisivel, carrinhos, produtosAdicionados, setProdutosAdicionados } = useContext(LojaContext);
-    // const [produtosAdicionados, setProdutosAdicionados] = useState<any[]>([]);
+    const { carrinhoVisivel, setCarrinhoVisivel, carrinhos, produtosAdicionados } = useContext(LojaContext);
 
     console.log('carrinhos', carrinhos)
 
@@ -30,23 +29,6 @@ const CarrinhoModal: React.FC = () => {
         history.push('/finalizar');
     }
 
-    console.log('local', produtosAdicionados);
-    // useEffect(() => {
-
-    //     async function possuiItensCarrinho() {
-
-    //         const local = window.localStorage.getItem('carrinho')
-
-    //         if (local) setProdutosAdicionados(item => [...item, JSON.parse(local)]);
-    //         if (!!!local)
-    //             return;
-
-    //     }
-
-    //     possuiItensCarrinho();
-
-
-    // }, [carrinhos]);
 
 
     if (!carrinhoVisivel) return null;
@@ -91,11 +73,7 @@ const CarrinhoModal: React.FC = () => {
                 </BtnFinalizar>
             </CarrinhoContainer>
 
-            {!produtosAdicionados && <CarrinhoVazio>O carrinho está vazio.</CarrinhoVazio>}
-
-
-
-
+            {produtosAdicionados.length <= 0 && <CarrinhoVazio>O carrinho está vazio.</CarrinhoVazio>}
         </Container >
     )
 }

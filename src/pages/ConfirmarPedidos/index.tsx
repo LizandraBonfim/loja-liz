@@ -74,11 +74,6 @@ const ConfirmarPedidos: React.FC = () => {
 
             <CarrinhoContainer>
                 <ItemCarrinhoFinalizar />
-                <ItemCarrinhoFinalizar />
-                <ItemCarrinhoFinalizar />
-                <ItemCarrinhoFinalizar />
-                <ItemCarrinhoFinalizar />
-
             </CarrinhoContainer>
 
             <FormasDePagamento>
