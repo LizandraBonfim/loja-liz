@@ -4,9 +4,21 @@ import { AnimeLeft } from '../../global';
 
 export const ProdutoContainer = styled(AnimeLeft)`
   display: grid ;
-  grid-template-columns: 1fr auto auto;
+  grid-template-columns: 1fr 1fr auto;
   align-items: center;
-  gap:3rem;
+  gap:1rem;
+  margin: 2rem 0;
+
+  h3{
+    font-family: var(--font-roboto);
+    font-weight: 500;
+    word-break: break-all;
+    margin-bottom: 1rem;
+  }
+
+  strong{
+    padding-bottom: 1rem;
+  }
   
 `;
 
@@ -18,7 +30,7 @@ export const BotaoQuantidade = styled.div`
     border: 1px solid var(--color-cinza);
     padding: .2rem;
 
-    /* width: 50%; */
+    width: 50%;
 
     button{
       align-items: center;

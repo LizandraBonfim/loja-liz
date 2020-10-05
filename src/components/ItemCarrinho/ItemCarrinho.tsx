@@ -11,19 +11,37 @@ import {
 } from './styles';
 import { FaTrashAlt, FaPlus } from 'react-icons/fa';
 import { GrFormSubtract } from 'react-icons/gr';
+import { AiFillTwitterCircle } from 'react-icons/ai';
 
-const ItemCarrinho: React.FC = () => {
+interface ProdutoProps {
+    itemsCarrinhos: ItemProps
+}
+
+interface ItemProps {
+    image: string;
+    title: string;
+    price: string;
+    qtd: string;
+    category?: string;
+    subtotal: string;
+    id: any;
+}
+
+
+const ItemCarrinho: React.FC<ProdutoProps> = ({ itemsCarrinhos }) => {
+
+    console.log('src, title, price', itemsCarrinhos)
     return (
         <ProdutoContainer>
 
-            <img src={produto} alt="produto" />
+            <img src={itemsCarrinhos.image} alt={itemsCarrinhos.title} />
 
             <div>
 
                 <div>
-                    <h3>Caneca</h3>
-                    <p>(P)</p>
-                    <strong>R$ 80,00</strong>
+                    <h3>{itemsCarrinhos.title}</h3>
+                    {/* <p>(P)</p> */}
+                    <strong>R$ {itemsCarrinhos.price}</strong>
 
                 </div>
                 <BotaoQuantidade>

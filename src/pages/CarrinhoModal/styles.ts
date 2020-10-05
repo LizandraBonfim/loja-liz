@@ -20,7 +20,7 @@ export const Container = styled.div`
 export const CarrinhoContainer = styled(AnimeLeft)`
      position: fixed;
       height: 100%;
-      width: 30%;
+      width: 37%;
       background: var(--color-branco);
       top: 0;
       right: 0;
@@ -79,6 +79,7 @@ export const ProdutosAdicionados = styled.section`
     grid-area: compras;
     
     > div + div{
+      padding: 2rem 0;
       border-top: 1px dashed var(--color-boxshadow-cinza);
     }
     

@@ -12,7 +12,7 @@ import { LojaContext } from '../../LojaContext';
 
 const Produto: React.FC = () => {
 
-    const { produtos, setProdutos } = useContext(LojaContext);
+    const { produtos, setProdutos, carrinhos, setCarrinhos } = useContext(LojaContext);
 
     useEffect(() => {
         async function getData() {
@@ -35,6 +35,42 @@ const Produto: React.FC = () => {
 
         getData()
     }, []);
+
+    function handleClick(item: any) {
+
+        const indexProduto = carrinhos.findIndex(x => x.id === item.id);
+        console.log('indexProduto', indexProduto)
+
+        // // setMessage({ message: `Item ${item.id} adicionado.` });
+        console.log('indexProduto', indexProduto === -1)
+
+
+
+        if (indexProduto === -1) {
+
+            item.qtd = 1;
+            item.subtotal = item.price;
+
+            setCarrinhos((itens) => [...itens, item]);
+            console.log('item', carrinhos)
+            return;
+        }
+
+        debugger;
+        let produto = carrinhos[indexProduto];
+        console.log('produto', produto);
+        produto.qtd += 1;
+        produto.subtotal = produto.qtd * produto.price;
+
+
+
+        carrinhos[indexProduto] = produto;
+
+        setCarrinhos(x => [...carrinhos]);
+
+
+        return;
+    }
 
     if (!produtos) return null;
 
@@ -71,9 +107,9 @@ const Produto: React.FC = () => {
                         </DescricaoProduto>
 
 
-                        <button> Comprar </button>
 
                     </Link>
+                    <button onClick={() => handleClick(item)}> Comprar </button>
 
                 </ProdutoItem>
 

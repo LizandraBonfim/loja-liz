@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { BsX } from 'react-icons/bs';
 
@@ -20,12 +20,36 @@ import ItemCarrinho from '../../components/ItemCarrinho/ItemCarrinho';
 
 const CarrinhoModal: React.FC = () => {
     const history = useHistory();
-    const { carrinhoVisivel, setCarrinhoVisivel } = useContext(LojaContext);
+    const { carrinhoVisivel, setCarrinhoVisivel, carrinhos, produtosAdicionados, setProdutosAdicionados } = useContext(LojaContext);
+    // const [produtosAdicionados, setProdutosAdicionados] = useState<any[]>([]);
+
+    console.log('carrinhos', carrinhos)
 
     function handleFinalizar() {
         setCarrinhoVisivel(false);
         history.push('/finalizar');
     }
+
+    console.log('local', produtosAdicionados);
+    // useEffect(() => {
+
+    //     async function possuiItensCarrinho() {
+
+    //         const local = window.localStorage.getItem('carrinho')
+
+    //         if (local) setProdutosAdicionados(item => [...item, JSON.parse(local)]);
+    //         if (!!!local)
+    //             return;
+
+    //     }
+
+    //     possuiItensCarrinho();
+
+
+    // }, [carrinhos]);
+
+
+    if (!carrinhoVisivel) return null;
     return (
 
         <Container>
@@ -39,16 +63,15 @@ const CarrinhoModal: React.FC = () => {
                         <p onClick={() => setCarrinhoVisivel(false)}><BsX /></p>
                     </TituloCarrinho>
 
-
-
                 </section>
                 <ProdutosAdicionados>
-                    <ItemCarrinho />
-                    <ItemCarrinho />
-                    <ItemCarrinho />
-                    <ItemCarrinho />
-                    <ItemCarrinho />
-                    <ItemCarrinho />
+                    {produtosAdicionados.map(item => (
+                        <ItemCarrinho
+                            key={item.id}
+                            itemsCarrinhos={item}
+                        />
+
+                    ))}
 
                 </ProdutosAdicionados>
                 <BtnFinalizar>
@@ -67,7 +90,8 @@ const CarrinhoModal: React.FC = () => {
                     <Button onClick={handleFinalizar}>Finalizar compra</Button>
                 </BtnFinalizar>
             </CarrinhoContainer>
-            {/* <CarrinhoVazio>O carrinho está vazio.</CarrinhoVazio> */}
+
+            {!produtosAdicionados && <CarrinhoVazio>O carrinho está vazio.</CarrinhoVazio>}
 
 
 

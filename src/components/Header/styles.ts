@@ -53,6 +53,7 @@ export const Content = styled(Container)`
 
     div:nth-child(1){
         grid-area: input;
+        /* margin: 2rem 0; */
 
     }
     div:nth-child(2) > nav{
