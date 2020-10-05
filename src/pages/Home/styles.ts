@@ -9,4 +9,9 @@ align-items: center;
 svg > *{
     fill: var(--color-rosa);
 }
+
+h1{
+    padding-left: 1rem;
+    font-size: 1.3rem;
+}
 `;

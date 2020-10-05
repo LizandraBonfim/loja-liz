@@ -29,9 +29,9 @@ const ItemCarrinho: React.FC = () => {
                 <BotaoQuantidade>
 
 
-                    <button><FaMinus size={29} /></button>
+                    <button><FaMinus size={20} /></button>
                     <p>1</p>
-                    <button><FaPlus size={30} /></button>
+                    <button><FaPlus size={20} /></button>
                 </BotaoQuantidade>
 
             </div>

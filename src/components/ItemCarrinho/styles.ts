@@ -31,7 +31,7 @@ export const BotaoQuantidade = styled.div`
       width: 25%;
       font-weight: bold;
     svg > *{
-      fill: var(--color-secondary);
+      fill: var(--color-branco);
     
     }
     }

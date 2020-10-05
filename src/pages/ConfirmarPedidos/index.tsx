@@ -2,29 +2,40 @@ import React from 'react';
 import { MainContainer } from '../../global';
 import ItemCarrinho from '../../components/ItemCarrinho/ItemCarrinho';
 
-import { Container, EnderecoContainer, DadosCartao, FormasDePagamento } from './styles';
+import {
+    Container,
+    EnderecoContainer,
+    DadosCartao,
+    FormasDePagamento,
+    LabelInputRadio,
+    CarrinhoContainer
+} from './styles';
 import Input from '../../components/Input';
+import { AiOutlineDoubleRight } from 'react-icons/ai';
+import { Titulo } from '../Home/styles';
 
 const ConfirmarPedidos: React.FC = () => {
     return (
 
         <MainContainer>
             <Container>
-                <section>
-                    <ItemCarrinho />
-                    <ItemCarrinho />
-                    <ItemCarrinho />
-                    <ItemCarrinho />
-                </section>
+
                 <section>
                     <EnderecoContainer>
 
+                        <Titulo>
+                            <AiOutlineDoubleRight />
+                            <h1>Dados da entrega</h1>
+                        </Titulo>
                         <aside>
+                            <LabelInputRadio htmlFor="endereco"  >
 
-                            <input type="radio" id="endereco" name="gender" value="pagamento" />
+                                <input type="radio" id="endereco" name="endereco" value="endereco" />
+
+                            </LabelInputRadio>
                             <div>
 
-                                <h3>Werter Nascimento Bonfim</h3>
+                                <h4>Werter Nascimento Bonfim</h4>
                                 <p>Rua Luigi Galvani, 70, 6 andar</p>
                                 <p>Cidade Monções</p>
                                 <p>São Paulo - SP</p>
@@ -38,12 +49,18 @@ const ConfirmarPedidos: React.FC = () => {
                 </section>
 
                 <EnderecoContainer>
-
+                    <Titulo>
+                        <AiOutlineDoubleRight />
+                        <h1>Dados do pagamento</h1>
+                    </Titulo>
                     <aside>
+                        <LabelInputRadio htmlFor="pagamento">
 
-                        <input type="radio" id="pagamento" name="gender" value="pagamento" />
+                            <input type="radio" id="pagamento" name="pagamento" value="pagamento" />
+
+                        </LabelInputRadio>
+
                         <div>
-
                             <h3>523421######2959</h3>
 
                             <DadosCartao>
@@ -57,8 +74,35 @@ const ConfirmarPedidos: React.FC = () => {
                     </aside>
                 </EnderecoContainer>
 
+                <CarrinhoContainer>
+                    <ItemCarrinho />
+                    <ItemCarrinho />
+                    <ItemCarrinho />
+                    <ItemCarrinho />
+                </CarrinhoContainer>
+
                 <FormasDePagamento>
-                    Formas de pagamento
+                    <section>
+                        <div>
+
+                            Formas de pagamento
+                    </div>
+
+                        <div>
+
+                            Formas de pagamento
+                    </div>
+
+                        <div>
+
+                            Formas de pagamento
+                    </div>
+
+                        <div>
+
+                            Formas de pagamento
+                    </div>
+                    </section>
                 </FormasDePagamento>
 
             </Container>
