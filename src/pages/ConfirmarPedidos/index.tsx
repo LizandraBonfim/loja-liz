@@ -1,5 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ItemCarrinhoFinalizar from '../../components/ItemCarrinho/ItemCarrinhoFinalizar';
+
+import carrinhovazio from '../../assets/preview.gif';
+
+import Input from '../../components/Input';
+import { AiOutlineDoubleRight } from 'react-icons/ai';
+import { Titulo } from '../Home/styles';
+import { Link } from 'react-router-dom';
+import { LojaContext } from '../../LojaContext';
 
 import {
     Container,
@@ -9,11 +17,10 @@ import {
     LabelInputRadio,
     CarrinhoContainer
 } from './styles';
-import Input from '../../components/Input';
-import { AiOutlineDoubleRight } from 'react-icons/ai';
-import { Titulo } from '../Home/styles';
 
 const ConfirmarPedidos: React.FC = () => {
+
+    const { carrinhos } = useContext(LojaContext);
     return (
 
         <Container>
@@ -39,6 +46,7 @@ const ConfirmarPedidos: React.FC = () => {
                             <p>São Paulo - SP</p>
                             <p>CEP 04575-020</p>
 
+                            <Link to="/endereco">Cadastrar novo endereço</Link>
 
                         </div>
                     </aside>
@@ -66,6 +74,8 @@ const ConfirmarPedidos: React.FC = () => {
                                 <Input type="text" nome="cvv" label="CVV" />
                             </div>
                             <Input type="number" nome="parcelas" label="Parcelar em" />
+                            <Link to="/endereco">Cadastrar novo cartão de crédito</Link>
+
                         </DadosCartao>
 
                     </div>
@@ -74,6 +84,10 @@ const ConfirmarPedidos: React.FC = () => {
 
             <CarrinhoContainer>
                 <ItemCarrinhoFinalizar />
+
+                {carrinhos.length <= 0 &&
+                    <img src={carrinhovazio} alt="Carrinho vazio" />
+                }
             </CarrinhoContainer>
 
             <FormasDePagamento>

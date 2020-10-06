@@ -14,7 +14,6 @@ const Cadastro: React.FC = () => {
     const senha = useForm("senha");
     const cpf = useForm();
     const telefone = useForm();
-    const sexo = useForm();
 
     function handleSubmit(e: FormEvent) {
         e.preventDefault();

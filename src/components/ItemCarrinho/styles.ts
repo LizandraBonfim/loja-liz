@@ -72,6 +72,12 @@ export const BotaoQuantidade = styled.div`
 
 
 export const Lixeira = styled.div`
+
+button{
+  background: none;
+  outline: none;
+  border: none;
+  
   > svg > polygon:nth-child(1){
     fill: rgb(255, 138, 101);
   }
@@ -83,6 +89,8 @@ export const Lixeira = styled.div`
   > svg > path:nth-child(3){
     fill: rgb(179, 157, 219);
   }
+}
+
 `;
 
 export const ProdutoFinalizar = styled.section`
@@ -103,7 +111,7 @@ export const ProdutoFinalizar = styled.section`
       width: 90%;
     }
 
-  @media(max-width:40rem){
+  @media(max-width:60rem){
     gap: .2rem;
     grid-template-columns:repeat(4, auto);
     

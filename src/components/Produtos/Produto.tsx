@@ -60,7 +60,7 @@ const Produto: React.FC = () => {
                                 <h4>{item.title} </h4>
 
                                 <Preco>
-                                    <h3>R$ {item.price}</h3>
+                                    <h3> {Utils.Valores(item.price)}</h3>
                                 </Preco>
 
                                 <DetalhesProduto>

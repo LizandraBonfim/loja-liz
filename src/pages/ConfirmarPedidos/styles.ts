@@ -31,10 +31,13 @@ margin: 3rem;
         padding: 1rem;
         border-radius: .5rem;
 
+        a{
+            color: #007bff;
+        }
       
         p{
 
-        color: var(--color-cinza);
+            color: var(--color-cinza);
         }
 
         &:nth-child(1){

@@ -135,5 +135,14 @@ export const BotaoComprar = styled.div`
         }
         
     }
+
+    @media (max-width: 40rem){
+
+        display: block;
+
+        button:first-child{
+            margin-bottom: 1rem;
+        }
+    }
     
 `;

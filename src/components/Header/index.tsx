@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import {
     FaPhone,
@@ -28,7 +28,6 @@ import {
     Img
 } from './styles';
 import Input from '../Input';
-import CarrinhoModal from '../../pages/CarrinhoModal';
 import { LojaContext } from '../../LojaContext';
 
 const Header: React.FC = () => {

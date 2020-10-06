@@ -59,6 +59,7 @@ const ProdutoDetalhe: React.FC = () => {
     }, []);
 
 
+
     function handleClick(item: any) {
 
         Utils.BotaoAdicionarCarrinho(item, carrinhos, setCarrinhos);
@@ -104,7 +105,7 @@ const ProdutoDetalhe: React.FC = () => {
                                 </Avaliacao>
                                 <Preco>
 
-                                    <h3>R$ {item.price}</h3>
+                                    <h3>{Utils.Valores(item.price)}</h3>
                                 </Preco>
 
                                 <p>{item.description}</p>
@@ -118,7 +119,9 @@ const ProdutoDetalhe: React.FC = () => {
                                 </CalculoFrete>
 
                                 <BotaoComprar>
-                                    <Button onClick={() => handleClick(item)}>  Adicionar ao Carrinho</Button>
+                                    <Button onClick={() => handleClick(item)}>
+                                        Adicionar ao Carrinho
+                                    </Button>
 
                                     <Link to="/" >
                                         <Button>  Voltar</Button>

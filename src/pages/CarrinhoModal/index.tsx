@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { BsX } from 'react-icons/bs';
 
+import carrinhovazio from '../../assets/preview.gif';
+
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import { LojaContext } from '../../LojaContext';
@@ -17,6 +19,7 @@ import {
 } from './styles';
 import { CalculoFrete } from '../../components/Produtos/produtoDetalheEstrutura';
 import ItemCarrinho from '../../components/ItemCarrinho/ItemCarrinho';
+import Utils from '../../shared/utils/Helpers';
 
 const CarrinhoModal: React.FC = () => {
     const history = useHistory();
@@ -44,11 +47,18 @@ const CarrinhoModal: React.FC = () => {
                     <TituloCarrinho>
 
                         <h1>CARRINHO DE COMPRAS</h1>
-                        <p onClick={() => setCarrinhoVisivel(false)}><BsX size={20} /></p>
+                        <p onClick={() => setCarrinhoVisivel(false)}>
+                            <BsX size={24} />
+                        </p>
                     </TituloCarrinho>
 
                 </section>
                 <ProdutosAdicionados>
+
+                    {carrinhos.length <= 0 &&
+                        <img src={carrinhovazio} alt="Carrinho vazio" />
+                    }
+
                     {carrinhos.map(item => (
                         <ItemCarrinho
                             key={item.id}
@@ -67,7 +77,13 @@ const CarrinhoModal: React.FC = () => {
                     </CalculoFrete>
 
                     <DadosTotal>
-                        <p>Subtotal: <strong>R$179,90</strong></p>
+                        <p>Subtotal:
+                            <strong>R$ {carrinhos.length >= 1
+                                ? Utils.Subtotal(carrinhos)
+                                : '0,00'}
+
+                            </strong>
+                        </p>
                         <p>Frete: <strong>Calcule para visualizar</strong></p>
 
                     </DadosTotal>
@@ -75,7 +91,6 @@ const CarrinhoModal: React.FC = () => {
                 </BtnFinalizar>
             </CarrinhoContainer>
 
-            {carrinhos.length <= 0 && <CarrinhoVazio>O carrinho está vazio.</CarrinhoVazio>}
         </Container >
     )
 }

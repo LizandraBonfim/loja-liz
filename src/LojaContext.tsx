@@ -5,7 +5,7 @@ interface Props {
     setCarrinhoVisivel: Dispatch<SetStateAction<boolean>>;
     setProdutos: Dispatch<SetStateAction<any[]>>;
     setLogin: Dispatch<SetStateAction<boolean>>;
-    setCarrinhos: Dispatch<SetStateAction<any[]>>;
+    setCarrinhos: (carrinho: any[]) => void;
     carrinhoVisivel: boolean;
     carrinhos: any[];
     produtos: any[];
@@ -33,12 +33,23 @@ const ContainerLoja: React.FC = ({ children }) => {
 
     }
 
+    function AtualizarCarrinho(carrinho: any) {
+        debugger
+        setCarrinhos(carrinho);
+        // AtualizarLocalStorage();
+    }
+
+    function AtualizarLocalStorage() {
+        window.localStorage.setItem('carrinho', JSON.stringify([...carrinhos]));
+        // if (carrinhos.length >= 1) {
+        //     console.log('carrinhos', carrinhos);
+        // }
+    }
+
     useEffect(() => {
 
-        if (carrinhos.length >= 1) {
-            console.log('carrinhos', carrinhos);
-            window.localStorage.setItem('carrinho', JSON.stringify([...carrinhos]));
-        }
+        window.localStorage.setItem('carrinho', JSON.stringify([...carrinhos]));
+
     }, [carrinhos]);
 
     useEffect(() => {
@@ -60,7 +71,7 @@ const ContainerLoja: React.FC = ({ children }) => {
             setProdutos,
             login,
             setLogin,
-            setCarrinhos,
+            setCarrinhos: AtualizarCarrinho,
             carrinhos
         }}>
             {children}

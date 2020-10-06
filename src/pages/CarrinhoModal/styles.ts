@@ -12,7 +12,8 @@ export const Container = styled.div`
     z-index: 100;
     padding: 1rem;
 
-  
+    display: grid;
+    grid-template-columns: 3fr 1fr;
 
 `;
 
@@ -61,8 +62,8 @@ export const TituloCarrinho = styled.div`
 
 export const BtnFinalizar = styled.div`
         grid-area: footer;
-        margin-bottom: 2rem;
-     button{
+
+      > button{
        
         background: var(--color-secondary);
       }

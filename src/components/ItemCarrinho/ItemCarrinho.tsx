@@ -1,17 +1,15 @@
-import React from 'react';
-import produto from '../../assets/produtos/caneca3.jpg';
+import React, { useContext } from 'react';
 
 import { FcFullTrash } from 'react-icons/fc';
-import { FaMinus } from 'react-icons/fa';
-import { BiMinus } from 'react-icons/bi';
+import { FaPlus, FaMinus } from 'react-icons/fa';
 import {
     ProdutoContainer,
     BotaoQuantidade,
     Lixeira
 } from './styles';
-import { FaTrashAlt, FaPlus } from 'react-icons/fa';
-import { GrFormSubtract } from 'react-icons/gr';
-import { AiFillTwitterCircle } from 'react-icons/ai';
+
+import Utils from '../../shared/utils/Helpers';
+import { LojaContext } from '../../LojaContext';
 
 interface ProdutoProps {
     itemsCarrinhos: ItemProps
@@ -23,37 +21,58 @@ interface ItemProps {
     price: string;
     qtd: string;
     category?: string;
-    subtotal: string;
+    subtotal: any;
     id: any;
 }
 
 
 const ItemCarrinho: React.FC<ProdutoProps> = ({ itemsCarrinhos }) => {
 
-    console.log('src, title, price', itemsCarrinhos)
+    const { carrinhos, setCarrinhos } = useContext(LojaContext);
+
+    function adicionar(item: any) {
+        Utils.AumentaQuantidade(item, carrinhos, setCarrinhos);
+    }
+
+    function diminuir(item: any) {
+        Utils.DiminuiQuantidade(item, carrinhos, setCarrinhos);
+    }
+
+    function excluirItemCarrinho(item: any) {
+        Utils.ExcluirItemDoCarrinho(item, carrinhos, setCarrinhos);
+    }
+
     return (
         <ProdutoContainer>
 
             <img src={itemsCarrinhos.image} alt={itemsCarrinhos.title} />
 
             <div>
-
                 <div>
                     <p>{itemsCarrinhos.title}</p>
                     {/* <p>(P)</p> */}
-                    <strong>R$ {itemsCarrinhos.price}</strong>
+                    <strong> {Utils.Valores(itemsCarrinhos.price)}</strong>
 
                 </div>
 
                 <BotaoQuantidade>
-                    <button><FaMinus size={20} /></button>
+                    <button onClick={() => diminuir(itemsCarrinhos)}>
+
+                        <FaMinus size={20} />
+                    </button>
                     <p>{itemsCarrinhos.qtd}</p>
-                    <button><FaPlus size={20} /></button>
+
+                    <button onClick={() => adicionar(itemsCarrinhos)}>
+
+                        <FaPlus size={20} />
+                    </button>
                 </BotaoQuantidade>
 
             </div>
             <Lixeira>
-                <FcFullTrash size={24} />
+                <button onClick={() => excluirItemCarrinho(itemsCarrinhos)}>
+                    <FcFullTrash size={24} />
+                </button>
             </Lixeira>
         </ProdutoContainer>
     )

@@ -11,10 +11,23 @@ import {
 } from './styles';
 import { FaTrashAlt, FaPlus } from 'react-icons/fa';
 import { LojaContext } from '../../LojaContext';
+import Utils from '../../shared/utils/Helpers';
 
 const ItemCarrinhoFinalizar: React.FC = () => {
 
-    const { carrinhoVisivel, setCarrinhoVisivel, carrinhos } = useContext(LojaContext);
+    const { carrinhoVisivel, setCarrinhoVisivel, carrinhos, setCarrinhos } = useContext(LojaContext);
+
+    function adicionar(item: any) {
+        Utils.AumentaQuantidade(item, carrinhos, setCarrinhos);
+    }
+
+    function diminuir(item: any) {
+        Utils.DiminuiQuantidade(item, carrinhos, setCarrinhos);
+    }
+
+    function excluirItemCarrinho(item: any) {
+        Utils.ExcluirItemDoCarrinho(item, carrinhos, setCarrinhos);
+    }
 
     return (
 
@@ -29,19 +42,26 @@ const ItemCarrinhoFinalizar: React.FC = () => {
                     <div>
                         <p>{item.title} </p>
                         <p>(P)</p>
-                        <strong>R$ {item.price} </strong>
+                        <strong>{Utils.Valores(item.price)} </strong>
                     </div>
 
 
 
                     <BotaoQuantidade>
-                        <button><FaMinus size={20} /></button>
+                        <button onClick={() => diminuir(item)}>
+
+                            <FaMinus size={20} />
+                        </button>
                         <p>{item.qtd}</p>
-                        <button><FaPlus size={20} /></button>
+                        <button onClick={() => adicionar(item)}>
+
+                            <FaPlus size={20} /></button>
                     </BotaoQuantidade>
 
                     <Lixeira>
-                        <FcFullTrash size={30} />
+                        <button onClick={() => excluirItemCarrinho(item)}>
+                            <FcFullTrash size={30} />
+                        </button>
                     </Lixeira>
                 </ProdutoFinalizar>
 

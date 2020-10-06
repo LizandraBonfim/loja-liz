@@ -1,5 +1,4 @@
 import React from 'react';
-import camisa1 from '../../assets/produtos/camiseta1.jpg';
 
 import { Container } from './styles';
 
