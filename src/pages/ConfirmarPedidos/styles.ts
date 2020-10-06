@@ -99,6 +99,15 @@ export const EnderecoContainer = styled.div`
 export const DadosCartao = styled.form`
 
 `;
+export const CarrinhoVazio = styled.section`
+padding: 5rem;
+img{
+    width: 25rem;
+    margin: auto;
+}
+
+`;
+
 
 export const CarrinhoContainer = styled.section`
     grid-area: pedidoscarrinho;
@@ -109,6 +118,7 @@ export const CarrinhoContainer = styled.section`
     padding: 0 1rem;
     ${EstiloScroll}
 
+    
         ::-webkit-scrollbar-track {
             width: 6px;
             background: var(--color-boxshadow-cinza);

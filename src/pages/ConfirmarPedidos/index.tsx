@@ -15,12 +15,21 @@ import {
     DadosCartao,
     FormasDePagamento,
     LabelInputRadio,
-    CarrinhoContainer
+    CarrinhoContainer,
+    CarrinhoVazio
 } from './styles';
 
 const ConfirmarPedidos: React.FC = () => {
 
     const { carrinhos } = useContext(LojaContext);
+
+    if (carrinhos.length <= 0) return (
+        <CarrinhoVazio>
+
+            <img src={carrinhovazio} alt="Carrinho vazio" />
+        </CarrinhoVazio>
+    )
+
     return (
 
         <Container>
@@ -85,9 +94,7 @@ const ConfirmarPedidos: React.FC = () => {
             <CarrinhoContainer>
                 <ItemCarrinhoFinalizar />
 
-                {carrinhos.length <= 0 &&
-                    <img src={carrinhovazio} alt="Carrinho vazio" />
-                }
+
             </CarrinhoContainer>
 
             <FormasDePagamento>
