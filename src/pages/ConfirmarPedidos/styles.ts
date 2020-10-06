@@ -48,12 +48,14 @@ margin: 3rem;
     }
   @media (max-width: 40rem){
     grid-template-columns: 1fr;
+    margin: 0;
     grid-template-areas: 
     'pedidoscarrinho '
     'endereco'
     'dadoscartao '
     'formaspagamento'
     ;
+    padding: 0 .5rem;
 
     }
 `;

@@ -93,9 +93,36 @@ export const ProdutoFinalizar = styled.section`
     align-items: center;
     justify-items: end;
 
-  div:nth-child(4){
+  & > div:nth-child(2) {
     margin-top: 0; 
-    width: 60%;
+    width: 90%;
   }
 
+  & > div:nth-child(3) {
+      margin-top: 0; 
+      width: 90%;
+    }
+
+  @media(max-width:40rem){
+    gap: .2rem;
+    grid-template-columns:repeat(4, auto);
+    
+  
+    & > div:nth-child(3) {
+      margin-top: 0; 
+      width: 90%;
+    }
+    strong{
+      font-size: .8rem;
+    }
+
+    > div:nth-child(2) > p:nth-child(1){
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      word-break: break-all;
+      overflow: hidden;
+      height: 2.9rem;
+    }
+  }
 `;

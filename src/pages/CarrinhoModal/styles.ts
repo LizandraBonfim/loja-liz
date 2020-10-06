@@ -39,7 +39,7 @@ export const CarrinhoContainer = styled(AnimeLeft)`
     
 
       @media (max-width: 40rem){
-        width: 93%;
+        width: 100%;
       }
 `;
 

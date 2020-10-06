@@ -10,7 +10,6 @@ import {
     Lixeira
 } from './styles';
 import { FaTrashAlt, FaPlus } from 'react-icons/fa';
-import { GrFormSubtract } from 'react-icons/gr';
 import { LojaContext } from '../../LojaContext';
 
 const ItemCarrinhoFinalizar: React.FC = () => {
@@ -30,11 +29,10 @@ const ItemCarrinhoFinalizar: React.FC = () => {
                     <div>
                         <p>{item.title} </p>
                         <p>(P)</p>
-                    </div>
-
-                    <div>
                         <strong>R$ {item.price} </strong>
                     </div>
+
+
 
                     <BotaoQuantidade>
                         <button><FaMinus size={20} /></button>
@@ -47,7 +45,7 @@ const ItemCarrinhoFinalizar: React.FC = () => {
                     </Lixeira>
                 </ProdutoFinalizar>
 
-            ))};
+            ))}
         </>
     )
 }
