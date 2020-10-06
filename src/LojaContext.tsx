@@ -10,8 +10,7 @@ interface Props {
     carrinhos: any[];
     produtos: any[];
     login: boolean;
-    setProdutosAdicionados: Dispatch<SetStateAction<any[]>>;
-    produtosAdicionados: any[];
+
 }
 
 export const LojaContext = createContext<Props>({} as Props);
@@ -19,17 +18,25 @@ export const LojaContext = createContext<Props>({} as Props);
 const ContainerLoja: React.FC = ({ children }) => {
 
     const [carrinhoVisivel, setCarrinhoVisivel] = useState(false);
-    // const [restaurante, setRestaurante] = useState();
 
     const [produtos, setProdutos] = useState<any[]>([]);
-    const [carrinhos, setCarrinhos] = useState<any[]>([]);
+    const [carrinhos, setCarrinhos] = useState<any[]>(() => carregarCarrinho());
     const [login, setLogin] = useState(false);
-    const [produtosAdicionados, setProdutosAdicionados] = useState<any[]>([]);
+
+
+    function carregarCarrinho(): any[] {
+
+        const local = window.localStorage.getItem('carrinho');
+        const itens = JSON.parse(local || "[]");
+
+        return itens;
+
+    }
 
     useEffect(() => {
 
         if (carrinhos.length >= 1) {
-            console.log('[...carrinhos, carrinhos]', [...carrinhos]);
+            console.log('carrinhos', carrinhos);
             window.localStorage.setItem('carrinho', JSON.stringify([...carrinhos]));
         }
     }, [carrinhos]);
@@ -44,33 +51,11 @@ const ContainerLoja: React.FC = ({ children }) => {
 
     }, [carrinhoVisivel, setCarrinhoVisivel]);
 
-    useEffect(() => {
-
-        async function possuiItensCarrinho() {
-
-            const local = window.localStorage.getItem('carrinho');
-            const itens = JSON.parse(local || "[]");
-            if (local) setProdutosAdicionados(itens);
-
-            console.log('produtosAdicionadosprodutosAdicionados', produtosAdicionados);
-            if (!!!local)
-                return;
-
-        }
-
-        possuiItensCarrinho();
-
-
-    }, [carrinhos]);
-
-
 
     return (
         <LojaContext.Provider value={{
             carrinhoVisivel,
             setCarrinhoVisivel,
-            setProdutosAdicionados,
-            produtosAdicionados,
             produtos,
             setProdutos,
             login,

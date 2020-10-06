@@ -29,7 +29,6 @@ export const Container = styled.div`
 
     h5{
         padding: .8rem 0;
-        
         border-bottom: 1px solid #eee;
     }
 
@@ -62,23 +61,12 @@ export const QtdEstoque = styled.div`
 `;
 
 export const Avaliacao = styled(DisplayFlex)`
-    display: flex;
-   align-items: center;
-   padding: 0 1rem 0 0;
+display: flex;
+align-items: center;
+padding: 0 1rem 0 0;
 
-    div{
+    div{ margin-left: 0;}
 
-        margin-left: 0;
-
-        /* &:first-child svg > *{
-            fill: #fb1;
-            
-            > svg:nth-child(5) svg  > *{
-                fill: var(--color-cinza);
-            }
-
-        } */
-    }
     @media(max-width: 60rem){
         padding: 0;
     }
@@ -122,6 +110,10 @@ export const BotaoComprar = styled.div`
     button{
         transition: 0.6s;
 
+    }
+
+    button:first-child{
+        margin-right: 1rem;
     }
 
     a {        

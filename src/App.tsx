@@ -10,9 +10,13 @@ import Login from './pages/Login';
 import Endereco from './pages/Endereco';
 import ContainerLoja from './LojaContext';
 import ConfirmarPedidos from './pages/ConfirmarPedidos';
+import CarrinhoModal from './pages/CarrinhoModal';
 
 
 function App() {
+
+
+
   return (
     <BrowserRouter>
       <GlobalStyle />
@@ -30,6 +34,7 @@ function App() {
           </Switch>
         </main>
         <Footer />
+        <CarrinhoModal />
       </ContainerLoja >
     </BrowserRouter>
   );

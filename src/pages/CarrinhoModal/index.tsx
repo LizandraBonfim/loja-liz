@@ -20,7 +20,7 @@ import ItemCarrinho from '../../components/ItemCarrinho/ItemCarrinho';
 
 const CarrinhoModal: React.FC = () => {
     const history = useHistory();
-    const { carrinhoVisivel, setCarrinhoVisivel, carrinhos, produtosAdicionados } = useContext(LojaContext);
+    const { carrinhoVisivel, setCarrinhoVisivel, carrinhos } = useContext(LojaContext);
 
     console.log('carrinhos', carrinhos)
 
@@ -29,12 +29,14 @@ const CarrinhoModal: React.FC = () => {
         history.push('/finalizar');
     }
 
-
+    function handleOutside() {
+        setCarrinhoVisivel(false);
+    }
 
     if (!carrinhoVisivel) return null;
     return (
 
-        <Container>
+        <Container >
             <div onClick={() => setCarrinhoVisivel(false)}></div>
 
             <CarrinhoContainer>
@@ -42,12 +44,12 @@ const CarrinhoModal: React.FC = () => {
                     <TituloCarrinho>
 
                         <h1>CARRINHO DE COMPRAS</h1>
-                        <p onClick={() => setCarrinhoVisivel(false)}><BsX /></p>
+                        <p onClick={() => setCarrinhoVisivel(false)}><BsX size={20} /></p>
                     </TituloCarrinho>
 
                 </section>
                 <ProdutosAdicionados>
-                    {produtosAdicionados.map(item => (
+                    {carrinhos.map(item => (
                         <ItemCarrinho
                             key={item.id}
                             itemsCarrinhos={item}
@@ -73,7 +75,7 @@ const CarrinhoModal: React.FC = () => {
                 </BtnFinalizar>
             </CarrinhoContainer>
 
-            {produtosAdicionados.length <= 0 && <CarrinhoVazio>O carrinho está vazio.</CarrinhoVazio>}
+            {carrinhos.length <= 0 && <CarrinhoVazio>O carrinho está vazio.</CarrinhoVazio>}
         </Container >
     )
 }

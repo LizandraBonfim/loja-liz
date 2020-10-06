@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-import { FaStar, FaShoppingCart } from 'react-icons/fa';
+import { FaStar } from 'react-icons/fa';
 import { FcChargeBattery } from 'react-icons/fc';
 import Button from '../Button';
 import Input from '../Input';
@@ -18,18 +18,17 @@ import {
 import { Preco } from './ProdutoEstrutura';
 import MiniFotos from '../MiniFotos';
 import api from '../../service/api';
+import Utils from '../../shared/utils/Helpers';
+import { LojaContext } from '../../LojaContext';
 
 const ProdutoDetalhe: React.FC = () => {
 
 
     const temp1 = useParams<any>();
-
-    console.log('temp1', temp1.id)
-
-    // const id = temp1['*'].split('/')[0];
     const id = temp1.id as number;
 
     const [produto, setProduto] = useState<any[]>([]);
+    const { carrinhos, setCarrinhos } = useContext(LojaContext);
 
 
     useEffect(() => {
@@ -58,7 +57,13 @@ const ProdutoDetalhe: React.FC = () => {
 
         getData()
     }, []);
-    // if(!produto)
+
+
+    function handleClick(item: any) {
+
+        Utils.BotaoAdicionarCarrinho(item, carrinhos, setCarrinhos);
+    }
+
     return (
 
         <MainContainer>
@@ -66,7 +71,7 @@ const ProdutoDetalhe: React.FC = () => {
             <AnimeLeft>
 
                 {produto && produto.map(item => (
-                    <ProdutoDetalheContainer>
+                    <ProdutoDetalheContainer key={item.id}>
 
                         <Container key={item.id}>
                             <section>
@@ -113,10 +118,7 @@ const ProdutoDetalhe: React.FC = () => {
                                 </CalculoFrete>
 
                                 <BotaoComprar>
-                                    <Link to="/">
-                                        <Button>  Adicionar ao Carrinho</Button>
-                                    </Link>
-
+                                    <Button onClick={() => handleClick(item)}>  Adicionar ao Carrinho</Button>
 
                                     <Link to="/" >
                                         <Button>  Voltar</Button>

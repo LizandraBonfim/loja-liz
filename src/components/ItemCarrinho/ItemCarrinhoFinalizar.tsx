@@ -14,13 +14,13 @@ import { LojaContext } from '../../LojaContext';
 
 const ItemCarrinhoFinalizar: React.FC = () => {
 
-    const { carrinhoVisivel, setCarrinhoVisivel, carrinhos, produtosAdicionados } = useContext(LojaContext);
+    const { carrinhoVisivel, setCarrinhoVisivel, carrinhos } = useContext(LojaContext);
 
     return (
 
         <>
 
-            {produtosAdicionados.map(item => (
+            {carrinhos.map(item => (
 
                 <ProdutoFinalizar key={item.id}>
 

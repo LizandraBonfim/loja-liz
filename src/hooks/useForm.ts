@@ -124,9 +124,6 @@ const useForm = (type: typeInput = undefined): Response => {
             //setValue(mask);
         }
 
-
-
-
         if (erro)
             isValid(target.value)
 

@@ -21,7 +21,8 @@ export const CarrinhoContainer = styled(AnimeLeft)`
       box-sizing: border-box;
       position: fixed;
       height: 100%;
-      width: 25%;
+      width: 35%;
+      align-content: space-between;
       background: var(--color-branco);
       top: 0;
       right: 0;
@@ -38,8 +39,12 @@ export const CarrinhoContainer = styled(AnimeLeft)`
         ;
     
 
-      @media (max-width: 40rem){
+      @media (max-width: 60rem){
         width: 100%;
+      }
+
+      @media (min-width: 1200px){
+        width: 25%;
       }
 `;
 

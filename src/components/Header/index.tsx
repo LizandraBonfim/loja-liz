@@ -33,18 +33,18 @@ import { LojaContext } from '../../LojaContext';
 
 const Header: React.FC = () => {
 
-    const { carrinhoVisivel, setCarrinhoVisivel, produtosAdicionados } = useContext(LojaContext);
+    const { carrinhos, carrinhoVisivel, setCarrinhoVisivel } = useContext(LojaContext);
     const [quantidade, setQuantidade] = React.useState(0);
 
     React.useEffect(() => {
 
-        if (produtosAdicionados.length === 0) return;
+        if (carrinhos.length === 0) return;
 
-        const values = produtosAdicionados.map(e => e.qtd).reduce((a, b) => a + b);
+        const values = carrinhos.map(e => e.qtd).reduce((a, b) => a + b);
         setQuantidade(values);
         console.log('quantidade', quantidade)
 
-    }, [produtosAdicionados]);
+    }, [carrinhos]);
 
 
     return (
@@ -106,7 +106,7 @@ const Header: React.FC = () => {
                             <span>
                                 {quantidade ? quantidade : 0}
                             </span>
-                            {carrinhoVisivel && <CarrinhoModal />}
+
                         </CarrinhoIcon>
                     </div>
 

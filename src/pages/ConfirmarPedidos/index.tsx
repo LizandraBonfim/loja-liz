@@ -33,7 +33,7 @@ const ConfirmarPedidos: React.FC = () => {
                         </LabelInputRadio>
                         <div>
 
-                            <h4>Werter Nascimento Bonfim</h4>
+                            <h4>Joe</h4>
                             <p>Rua Luigi Galvani, 70, 6 andar</p>
                             <p>Cidade Monções</p>
                             <p>São Paulo - SP</p>
