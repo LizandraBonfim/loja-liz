@@ -34,14 +34,18 @@ const GlobalStyle = createGlobalStyle`
   }
   
 svg > * {
-  fill: var(--color-cinza) ;
+  fill: ${props => props.theme.color.svg};
+
 }
 
   body {
     margin: 0;
     padding: 0;
+    background: ${props => props.theme.color.background};
+    color: ${props => props.theme.color.text};
     font-family: var(--font-roboto);
     box-sizing: border-box;
+    transition: all 0.50s linear;
     ${EstiloScroll}
  
     /* background: #24292e; */
@@ -66,7 +70,7 @@ svg > * {
   }
   a{
     text-decoration: none;
-    color: var(--color-primary);
+    color:  ${props => props.theme.color.text};
     
   }
   p, ul, li, h3, h1, h5{

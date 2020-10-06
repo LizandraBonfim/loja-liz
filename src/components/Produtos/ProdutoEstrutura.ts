@@ -33,6 +33,7 @@ export const ProdutoImagem = styled.div`
 export const ProdutoItem = styled.div`
     border: 1px solid #eee;
     transition: .2s;
+    background: var(--color-branco);
     padding: .1rem;
 
     button{

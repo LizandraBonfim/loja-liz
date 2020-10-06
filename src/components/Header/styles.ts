@@ -4,6 +4,7 @@ import { Container, AnimeTop } from '../../global';
 export const HeaderContainer = styled.header`
     box-shadow: 0px 1px 0 0 var(--color-boxshadow-cinza);
     padding: .2rem 0;
+    background: ${props => props.theme.color.background};
 
 `;
 

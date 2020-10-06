@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import Switch from 'react-switch';
 import {
     FaPhone,
     FaMailBulk,
@@ -12,6 +13,8 @@ import {
     FaMoon,
     FaRegLightbulb
 } from 'react-icons/fa';
+
+import { ThemeContext } from 'styled-components';
 
 import logo from '../../assets/logo-escuro.png';
 import {
@@ -30,9 +33,14 @@ import {
 import Input from '../Input';
 import { LojaContext } from '../../LojaContext';
 
-const Header: React.FC = () => {
+interface Theme {
+    toggleTheme(): void;
+}
 
-    const { carrinhos, carrinhoVisivel, setCarrinhoVisivel } = useContext(LojaContext);
+const Header: React.FC<Theme> = ({ toggleTheme }) => {
+
+    const { carrinhos, setCarrinhoVisivel } = useContext(LojaContext);
+    const { color, title } = useContext(ThemeContext);
     const [quantidade, setQuantidade] = React.useState(0);
 
     React.useEffect(() => {
@@ -67,8 +75,21 @@ const Header: React.FC = () => {
                         <Link to="/"><FaMailBulk /> Fale Conosco</Link>
                         <BotaoToggle >
                             <FaRegLightbulb size={20} />
-                            <input type="checkbox" id="onoff1" />
-                            <label htmlFor="onoff1" />
+                            <Switch
+                                onChange={toggleTheme}
+                                checked={title === 'dark'}
+                                checkedIcon={true}
+                                uncheckedIcon={false}
+                                height={10}
+                                width={40}
+                                handleDiameter={20}
+                                offColor={'#eee'}
+                                onColor={'#fc5c94'}
+                                offHandleColor={'#eee'}
+
+                            />
+
+
                             <FaMoon size={20} />
                         </BotaoToggle>
                     </Contatos>
