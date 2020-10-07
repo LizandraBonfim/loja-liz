@@ -60,6 +60,9 @@ svg > * {
     /* text-transform: uppercase; */
   }
 
+  p{
+      color: ${propx => propx.theme.color.svg};
+  }
 
   input, button{
     width: 100%;
@@ -70,7 +73,7 @@ svg > * {
   }
   a{
     text-decoration: none;
-    color:  ${props => props.theme.color.text};
+    color:  ${props => props.theme.color.svg};
     
   }
   p, ul, li, h3, h1, h5{
@@ -85,9 +88,10 @@ svg > * {
     list-style: none;
   }
 
-  .v1iv1ovxu > button{
-  width: 10%;
-}
+
+  .Toastify__close-button--dark{
+      width: 10%
+  }
 
 `;
 
@@ -95,6 +99,8 @@ export const Container = styled.section`
     max-width: 65rem;
     padding: 0 1rem;
     margin: 0 auto;
+
+     
 `;
 
 export const MainContainer = styled(Container)`
@@ -103,6 +109,8 @@ export const MainContainer = styled(Container)`
     display: flex;
     flex-direction: column;
     min-height: calc(100vh - 15rem);
+
+   
 `;
 
 const animeLeft = keyframes`

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Switch from 'react-switch';
 import {
@@ -16,7 +16,6 @@ import {
 
 import { ThemeContext } from 'styled-components';
 
-import logo from '../../assets/logo-escuro.png';
 import {
     HeaderContainer,
     Content,
@@ -27,11 +26,14 @@ import {
     RedesSociais,
     Contatos,
     Nav,
+    HeaderFixed,
     BotaoToggle,
     Img
 } from './styles';
 import Input from '../Input';
 import { LojaContext } from '../../LojaContext';
+import { Container } from '../../global';
+import HeaderNavFixed from './HeaderNavFixed';
 
 interface Theme {
     toggleTheme(): void;
@@ -39,28 +41,34 @@ interface Theme {
 
 const Header: React.FC<Theme> = ({ toggleTheme }) => {
 
-    const { carrinhos, setCarrinhoVisivel } = useContext(LojaContext);
     const { color, title } = useContext(ThemeContext);
-    const [quantidade, setQuantidade] = React.useState(0);
 
-    React.useEffect(() => {
+    const [scrolled, setScrolled] = React.useState(false);
 
-        if (carrinhos.length === 0) return;
+    console.log('scrolled', scrolled)
 
-        const values = carrinhos.map(e => e.qtd).reduce((a, b) => a + b);
-        setQuantidade(values);
-        console.log('quantidade', quantidade)
+    const handleScroll = () => {
+        const offset = window.scrollY;
+        if (offset > 200) {
+            setScrolled(true);
+        }
+        else {
+            setScrolled(false);
+        }
+    }
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll)
+    })
 
-    }, [carrinhos]);
-
+    let x = ['navbar'];
+    if (scrolled) {
+        x.push('scrolled');
+    }
 
     return (
         <HeaderContainer>
-
             <HeaderTop>
                 <HeaderTopContent>
-
-
                     <RedesSociais>
 
                         <li><FaInstagram /></li>
@@ -89,7 +97,6 @@ const Header: React.FC<Theme> = ({ toggleTheme }) => {
 
                             />
 
-
                             <FaMoon size={20} />
                         </BotaoToggle>
                     </Contatos>
@@ -97,42 +104,12 @@ const Header: React.FC<Theme> = ({ toggleTheme }) => {
                 </HeaderTopContent>
             </HeaderTop>
 
-            <Content>
-                <Input nome="pesquisa" type="text" placeholder="Pesquise.." />
-                <Link to="/">
-                    <Img src={logo} alt="Logo" />
-                </Link>
-
-                <Carrinho>
-
-
-                    <nav>
-                        <p> <FaRegUser /> Minha Conta</p>
-
-
-                        <Nav>
-
-                            <Link to="/login">Login</Link>
-                            <Link to="/cadastro">Criar conta</Link>
-                        </Nav>
-                    </nav>
-
-                    <div>
-
-                        <CarrinhoIcon onClick={() => setCarrinhoVisivel(true)}>
-
-                            <FaShoppingBag size={20} />
-
-                            <span>
-                                {quantidade ? quantidade : 0}
-                            </span>
-
-                        </CarrinhoIcon>
-                    </div>
-
-
-                </Carrinho>
-            </Content>
+            {scrolled
+                && <HeaderFixed>
+                    <HeaderNavFixed />
+                </HeaderFixed>
+            }
+            <HeaderNavFixed />
 
         </HeaderContainer >
     )

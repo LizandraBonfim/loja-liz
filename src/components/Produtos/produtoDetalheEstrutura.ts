@@ -1,8 +1,10 @@
 import styled from 'styled-components';
-// import { darken } from 'polished';
+
 import { DisplayFlex } from '../Header/styles';
 
 export const ProdutoDetalheContainer = styled.div`
+     
+
 `;
 
 export const Container = styled.div`
@@ -14,6 +16,7 @@ export const Container = styled.div`
     gap: 2rem;
 
     section:first-child{
+       
         margin: auto;
         padding: 1rem;
         background: var(--color-branco);

@@ -12,11 +12,14 @@ export const Container = styled.div`
         background-color: ${props => props.theme.color.primary};
         transition: .3s;
         outline: none;
+        color: ${props => props.theme.color.corTextoInput};
+
     &:hover, &:focus{
         outline: none;
         background: white;
         box-shadow: 0 0 2px 1px var(--color-rosa);
         border-color: var(--color-instagram);
+        color: ${props => props.theme.color.corTextoInputSecond};
     }
     }
 `;

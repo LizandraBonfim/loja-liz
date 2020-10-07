@@ -31,7 +31,7 @@ export const CarrinhoContainer = styled(AnimeLeft)`
       background: var(--color-branco);
       top: 0;
       right: 0;
-      z-index: 100;
+      z-index: 1000;
       padding: 1rem;
       border-radius: .5rem;
       gap:1rem;

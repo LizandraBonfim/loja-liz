@@ -20,6 +20,7 @@ import MiniFotos from '../MiniFotos';
 import api from '../../service/api';
 import Utils from '../../shared/utils/Helpers';
 import { LojaContext } from '../../LojaContext';
+import Image from '../../shared/Image';
 
 const ProdutoDetalhe: React.FC = () => {
 

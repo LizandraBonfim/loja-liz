@@ -9,12 +9,13 @@ export const SelectBlock = styled.div`
     select{
         width: 100%;
         padding: .5rem 0;
-        border: 1px solid #eee;
+        border: 1px solid ${props => props.theme.color.primary};
+        color: ${props => props.theme.color.corTextoInput};
         display: block;
         font-size: 1rem;
         padding: 0.8rem;
         border-radius: 0.4rem;
-        background-color: #eee;
+        background-color: ${props => props.theme.color.primary};
         transition: .3s;
         outline: none;
 
@@ -23,6 +24,7 @@ export const SelectBlock = styled.div`
         padding: 1rem;
         &:active{
             background-color: var(--color-rosa);
+            /* color: ${props => props.theme.color.corTextoInput}; */
 
         }
         }

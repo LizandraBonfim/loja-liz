@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Container } from './styles';
+import Image from '../../shared/Image';
 
 interface ImageProps {
     src: any
@@ -9,7 +10,7 @@ interface ImageProps {
 const MiniFotos: React.FC<ImageProps> = ({ src }) => {
     return (
         <Container>
-            <img src={src} alt="" />
+            <Image src={src} alt="mini fotos" />
         </Container>
 
     )

@@ -12,6 +12,8 @@ declare module 'styled-components' {
             colorClaro: string,
             colorRosa: string,
             svg: string
+            corTextoInput: string;
+            corTextoInputSecond: string;
         }
     }
 }

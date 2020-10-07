@@ -4,7 +4,6 @@ import { Container, AnimeTop } from '../../global';
 export const HeaderContainer = styled.header`
     box-shadow: 0px 1px 0 0  ${props => props.theme.color.primary};
     padding: .2rem 0;
-    background: ${props => props.theme.color.background};
 
 `;
 
@@ -25,7 +24,6 @@ export const DisplayFlex = styled.div`
         align-items: center;
     }
     p{
-        color: var(--color-cinza);
         font-size: .9rem;
     }
     div{
@@ -43,8 +41,20 @@ export const Img = styled.img`
         width: 4rem;
         display: block;
 `;
+export const HeaderFixed = styled.div`
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: ${props => props.theme.color.background};
 
-export const Content = styled(Container)`
+    div:first-child{
+        padding: .5rem 0;
+    }
+   
+`;
+export const Content = styled.div`
     padding: 1rem 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -188,7 +198,6 @@ export const RedesSociais = styled.ul`
        li{
      
         cursor: pointer;
-        color: var(--color-cinza);
         
         + li{
             margin-left: .5rem;
@@ -221,59 +230,14 @@ export const Contatos = styled(DisplayFlex)`
     }
     a{
         margin-left: 1rem;
-        color: var(--color-cinza);
     }
 `;
 
 export const BotaoToggle = styled.div`
 
-display: flex;
-align-items: center;
-position: relative;
-input{
-    display: none;
-}
-
-input + label {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     position: relative;
-    box-shadow: inset 0 0 0px 1px  ${props => props.theme.color.primary};
-    height: 1rem;
-    width: 2rem;
-    border-radius: 30px;
-}
 
-        input  + label{
-
-        &::after  {
-            content: "";
-            position: absolute;
-            height: 1rem;
-            width: 1rem;
-            
-            border-radius: 30px;
-            background: var(--color-branco);
-            box-shadow: inset 0 0 0 1px rgba(0,0,0,0.2), 0 2px 4px rgba(0,0,0,0.2);
-            -webkit-transition: 0.1s ease-in-out;
-            transition: 0.1s ease-in-out;
-        }
-
-        
-    }
-
-    input:checked + label{
-        box-shadow: inset 1px 0px 3px 1px var(--color-rosa), 0 2px 4px rgba(0, 0, 0, 0.2);
-
-    }
-
-    input:checked + label:before {
-        width: 100px;
-        background: var(--color-rosa);
-    }
-    
-    input:checked + label:after {
-        left: 1rem;
-        box-shadow: inset 0 0 0 1px var(--color-rosa), 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
 `;
 

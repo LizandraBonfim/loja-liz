@@ -47,7 +47,7 @@ function App() {
               <Route path="/finalizar" component={ConfirmarPedidos} />
             </Switch>
           </main>
-          {/* <Notificacao /> */}
+          <Notificacao />
           <Footer />
           <CarrinhoModal />
         </ContainerLoja >

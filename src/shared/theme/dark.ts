@@ -8,7 +8,9 @@ export default {
         text: '#6272A4',
         colorClaro: '#F8F8F2',
         colorRosa: 'var(--color-rosa)',
-        svg: '#6272A4'
+        svg: '#6272A4',
+        corTextoInput: 'var(--color-cinza)',
+        corTextoInputSecond: 'var(--color-cinza)',
 
     }
 }

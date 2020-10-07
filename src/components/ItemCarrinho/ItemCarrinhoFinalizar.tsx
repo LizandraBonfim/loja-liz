@@ -12,6 +12,7 @@ import {
 import { FaPlus } from 'react-icons/fa';
 import { LojaContext } from '../../LojaContext';
 import Utils from '../../shared/utils/Helpers';
+import Image from '../../shared/Image';
 
 const ItemCarrinhoFinalizar: React.FC = () => {
 
@@ -37,7 +38,7 @@ const ItemCarrinhoFinalizar: React.FC = () => {
 
                 <ProdutoFinalizar key={item.id}>
 
-                    <img src={item.image} alt="produto" />
+                    <Image src={item.image} alt="produto" />
 
                     <div>
                         <p>{item.title} </p>

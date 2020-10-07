@@ -14,8 +14,9 @@ export default class Utils {
             console.log([...carrinhos, item], '[...carrinhos, item]')
             setCarrinhos([...carrinhos, item]);
             console.log('item', carrinhos);
-            toast.dark(`${item.title} adicionado ao carrinho`);
+            const title = Utils.TextoGrande(item.title)
 
+            toast.dark(`${title} adicionado ao carrinho.`);
             return;
         }
 
@@ -30,7 +31,9 @@ export default class Utils {
 
         setCarrinhos([...carrinhos]);
 
-        toast.dark(`${item.title} adicionado ao carrinho`);
+        const title = Utils.TextoGrande(item.title)
+
+        toast.dark(`${title} adicionado ao carrinho.`);
 
 
         return;
@@ -69,14 +72,15 @@ export default class Utils {
             produtos[produtoIndex] = produto;
         }
 
-        toast.dark(`${item.title} adicionado ao carrinho ao carrinho`);
+        const title = Utils.TextoGrande(item.title)
+
+        toast.dark(`${title} adicionado ao carrinho.`);
 
     }
 
 
     public static DiminuiQuantidade(item: any, produtos: any[], setCarrinhos: (itens: any[]) => void) {
 
-        debugger
         const produtoIndex = produtos.findIndex((x: any) => x.id === item.id);
 
         if (produtos[produtoIndex].qtd === 1) {
@@ -84,8 +88,6 @@ export default class Utils {
             return;
         }
         if (produtoIndex !== -1) {
-
-
 
             produtos[produtoIndex].qtd -= 1;
             setCarrinhos([...produtos]);
@@ -97,16 +99,25 @@ export default class Utils {
             produtos[produtoIndex] = produto;
         }
 
-        toast.dark(`${item.title} removido.`);
+        const title = Utils.TextoGrande(item.title)
+
+        toast.dark(`${title} removido.`);
 
     }
 
+    public static TextoGrande(text: string) {
+        return text.split(' ').slice(0, 3).join(' ');
+    }
 
     public static ExcluirItemDoCarrinho(item: any, produtos: any[], setCarrinhos: (itens: any[]) => void) {
 
         const filtered = [...produtos].filter(x => x.id !== item.id);
         setCarrinhos(filtered);
-        toast.dark(`${item.title} removido.`);
+
+        const title = Utils.TextoGrande(item.title);
+        console.log('title', title)
+
+        toast.dark(`${title} removido.`);
 
 
     }
