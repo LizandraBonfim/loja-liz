@@ -41,7 +41,7 @@ interface Theme {
 
 const Header: React.FC<Theme> = ({ toggleTheme }) => {
 
-    const { color, title } = useContext(ThemeContext);
+    const { title } = useContext(ThemeContext);
 
     const [scrolled, setScrolled] = React.useState(false);
 

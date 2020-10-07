@@ -25,7 +25,10 @@ const HeaderNavFixed: React.FC = () => {
 
     useEffect(() => {
 
-        if (carrinhos.length === 0) return;
+        if (carrinhos.length === 0) {
+            setQuantidade(0);
+            return;
+        };
 
         const values = carrinhos.map(e => e.qtd).reduce((a, b) => a + b);
         setQuantidade(values);

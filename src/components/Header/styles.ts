@@ -52,6 +52,11 @@ export const HeaderFixed = styled.div`
     div:first-child{
         padding: .5rem 0;
     }
+
+    @media(max-width: 60rem){
+        display: none;
+    }
+    /* #root > header > div > section > div > div.sc-hBMVcZ.sc-hHEjAm.lcbedZ.fyovhq > div > div */
    
 `;
 export const Content = styled.div`
