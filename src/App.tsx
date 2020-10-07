@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { ThemeProvider, DefaultTheme } from 'styled-components';
+import { DefaultContext } from 'react-icons/lib';
 
 import Home from './pages/Home';
 import Header from './components/Header';
@@ -17,7 +18,7 @@ import CarrinhoModal from './pages/CarrinhoModal';
 import light from './shared/theme/light';
 import dark from './shared/theme/dark';
 import usePersisteTheme from './shared/theme/usePersisteTheme';
-import { DefaultContext } from 'react-icons/lib';
+import Notificacao from './components/Notificacao';
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
               <Route path="/finalizar" component={ConfirmarPedidos} />
             </Switch>
           </main>
+          {/* <Notificacao /> */}
           <Footer />
           <CarrinhoModal />
         </ContainerLoja >

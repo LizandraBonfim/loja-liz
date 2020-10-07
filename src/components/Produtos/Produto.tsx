@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import {
     ProdutoItem,
     DescricaoProduto,
@@ -28,6 +29,7 @@ const Produto: React.FC = () => {
 
                 return;
             } catch (error) {
+                toast.error('Ocorreu um erro.');
                 console.log({ error: error });
                 return;
 

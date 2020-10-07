@@ -1,7 +1,7 @@
 export default {
     title: 'light',
     color: {
-        primary: '#fff',
+        primary: '#eee',
         secundary: '#333',
 
         background: 'var(--color-branco)',

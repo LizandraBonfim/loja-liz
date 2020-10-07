@@ -4,12 +4,12 @@ import styled from 'styled-components';
 export const Container = styled.div`
     padding: .5rem 0;
     input{
-        border: 1px solid #eee;
+        border: 1px solid ${props => props.theme.color.primary};
         display: block;
         font-size: 1rem;
         padding: 0.8rem;
         border-radius: 0.4rem;
-        background-color: #eee;
+        background-color: ${props => props.theme.color.primary};
         transition: .3s;
         outline: none;
     &:hover, &:focus{

@@ -3,11 +3,12 @@ import styled from 'styled-components';
 import { DisplayFlex } from '../Header/styles';
 
 export const ProdutoDetalheContainer = styled.div`
-    
 `;
 
 export const Container = styled.div`
-    border: 1px solid #eee;
+    background: var(--color-branco);
+
+    border: 1px solid  ${props => props.theme.color.primary};
     display: grid;
     grid-template-columns: minmax(27rem,1fr) minmax(29rem,2fr);
     gap: 2rem;
@@ -15,6 +16,7 @@ export const Container = styled.div`
     section:first-child{
         margin: auto;
         padding: 1rem;
+        background: var(--color-branco);
     }
 
     h1{
@@ -29,7 +31,7 @@ export const Container = styled.div`
 
     h5{
         padding: .8rem 0;
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid  ${props => props.theme.color.primary};
     }
 
     @media(max-width: 60rem){
@@ -45,10 +47,11 @@ export const Container = styled.div`
 
 
 export const DetalhesCompra = styled.section`
-    border-left: 1px solid #eee;
+    border-left: 1px solid ${props => props.theme.color.primary};
     padding: 1rem;
     font-family: var(--font-oswald);
 
+    background: ${props => props.theme.color.background};
     
 `;
 

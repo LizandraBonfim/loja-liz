@@ -8,6 +8,7 @@ export const Container = styled.div`
 
   img{
 
+    background: var(--color-branco);
     box-shadow: 0px 0px 3px var(--color-cinza);
     cursor: pointer;
     padding: 0.5rem;

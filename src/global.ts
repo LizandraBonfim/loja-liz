@@ -85,7 +85,9 @@ svg > * {
     list-style: none;
   }
 
-
+  .v1iv1ovxu > button{
+  width: 10%;
+}
 
 `;
 
@@ -183,5 +185,6 @@ export const ColunaDois = styled.div`
 
 
 `;
+
 
 export default GlobalStyle; 

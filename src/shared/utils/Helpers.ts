@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
+import { toast } from 'react-toastify';
 
 export default class Utils {
 
@@ -12,7 +13,9 @@ export default class Utils {
             item.subtotal = item.price;
             console.log([...carrinhos, item], '[...carrinhos, item]')
             setCarrinhos([...carrinhos, item]);
-            console.log('item', carrinhos)
+            console.log('item', carrinhos);
+            toast.dark(`${item.title} adicionado ao carrinho`);
+
             return;
         }
 
@@ -26,6 +29,9 @@ export default class Utils {
         carrinhos[indexProduto] = produto;
 
         setCarrinhos([...carrinhos]);
+
+        toast.dark(`${item.title} adicionado ao carrinho`);
+
 
         return;
     }
@@ -63,7 +69,8 @@ export default class Utils {
             produtos[produtoIndex] = produto;
         }
 
-        // setMessage({ message: `Item ${item.id} adicionado.` });
+        toast.dark(`${item.title} adicionado ao carrinho ao carrinho`);
+
     }
 
 
@@ -90,18 +97,16 @@ export default class Utils {
             produtos[produtoIndex] = produto;
         }
 
-        // setMessage({ message: `Item ${item.id} adicionado.` });
+        toast.dark(`${item.title} removido.`);
+
     }
 
 
     public static ExcluirItemDoCarrinho(item: any, produtos: any[], setCarrinhos: (itens: any[]) => void) {
 
-        const produtoIndex = produtos.findIndex((x: any) => x.id === item.id);
-
-        // produtos.slice(produtoIndex, 1);
         const filtered = [...produtos].filter(x => x.id !== item.id);
         setCarrinhos(filtered);
-        // setCarrinhos(x => [...produtos].filter(x => x.id !== item.id));
+        toast.dark(`${item.title} removido.`);
 
 
     }
