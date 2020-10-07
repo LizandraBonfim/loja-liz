@@ -91,7 +91,6 @@ export const EnderecoContainer = styled.div`
     margin-bottom: 3rem;
 
     h3{
-        color: var(--color-primary);
         margin-bottom: 1rem;
     }
 `;

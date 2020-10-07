@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const FooterContainer = styled.footer`
-    box-shadow: -1px -1px 0 0 var(--color-cinza);
+    box-shadow: -1px -1px 0 0  ${props => props.theme.color.primary};
     padding: 2rem 0;
 `;
 
@@ -18,7 +18,7 @@ export const Content = styled.div`
         text-align: center;
 
         div{
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid  ${props => props.theme.color.primary};
             padding-bottom: 1rem;
             
         }

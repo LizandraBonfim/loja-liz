@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Container, AnimeTop } from '../../global';
 
 export const HeaderContainer = styled.header`
-    box-shadow: 0px 1px 0 0 var(--color-boxshadow-cinza);
+    box-shadow: 0px 1px 0 0  ${props => props.theme.color.primary};
     padding: .2rem 0;
     background: ${props => props.theme.color.background};
 
@@ -98,7 +98,7 @@ export const CarrinhoIcon = styled.div`
             padding: 1rem;
             border-radius: 50%;
             box-shadow: -1px 1px 10px 2px var(--color-cinza);
-            border: 1px solid var( --color-cinza);
+            border: ${props => props.theme.color.primary};
         }
 `
 
@@ -107,7 +107,7 @@ background: var(--color-branco);
 padding: 1.5rem;
 position: absolute;
 z-index: 1000;
-box-shadow: 0px 0px 5px 1px var(--color-boxshadow-cinza);
+box-shadow: ${props => props.theme.color.primary};
 display: none;
 
 a{
@@ -162,7 +162,7 @@ export const Carrinho = styled(DisplayFlex)`
 
 export const HeaderTop = styled.nav`
     
-    box-shadow: 0px 1px 0 0 var(--color-boxshadow-cinza);
+    box-shadow: 0px 1px 0 0  ${props => props.theme.color.primary};
 
 `;
 
@@ -237,7 +237,7 @@ input{
 input + label {
     display: inline-block;
     position: relative;
-    box-shadow: inset 0 0 0px 1px #d5d5d5;
+    box-shadow: inset 0 0 0px 1px  ${props => props.theme.color.primary};
     height: 1rem;
     width: 2rem;
     border-radius: 30px;

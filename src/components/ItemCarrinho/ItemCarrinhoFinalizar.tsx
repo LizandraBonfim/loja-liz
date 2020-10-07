@@ -9,13 +9,13 @@ import {
     BotaoQuantidade,
     Lixeira
 } from './styles';
-import { FaTrashAlt, FaPlus } from 'react-icons/fa';
+import { FaPlus } from 'react-icons/fa';
 import { LojaContext } from '../../LojaContext';
 import Utils from '../../shared/utils/Helpers';
 
 const ItemCarrinhoFinalizar: React.FC = () => {
 
-    const { carrinhoVisivel, setCarrinhoVisivel, carrinhos, setCarrinhos } = useContext(LojaContext);
+    const { carrinhos, setCarrinhos } = useContext(LojaContext);
 
     function adicionar(item: any) {
         Utils.AumentaQuantidade(item, carrinhos, setCarrinhos);

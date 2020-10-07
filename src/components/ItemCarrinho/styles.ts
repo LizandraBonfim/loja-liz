@@ -10,6 +10,8 @@ export const ProdutoContainer = styled(AnimeLeft)`
   align-items: center;
   justify-content: space-around;
 
+ 
+
   gap:1rem;
   margin: 2rem 0;
 
@@ -100,6 +102,11 @@ export const ProdutoFinalizar = styled.section`
     margin-bottom: 2rem;
     align-items: center;
     justify-items: end;
+
+    img{
+    border: ${props => props.theme.title === 'dark' && '2px solid #616e96'}
+
+  }
 
   & > div:nth-child(2) {
     margin-top: 0; 

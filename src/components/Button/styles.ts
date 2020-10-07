@@ -17,7 +17,7 @@ export const Container = styled.button`
     :focus {
         
         outline: none;
-    /* border: 1px solid #eee; */
+   
     box-shadow: 0px 0px 0px 1px var(--color-branco), 0px 0px 16px 0px var(--color-instagram);
     
     }
