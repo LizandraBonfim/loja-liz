@@ -23,7 +23,6 @@ const ContainerLoja: React.FC = ({ children }) => {
     const [carrinhos, setCarrinhos] = useState<any[]>(() => carregarCarrinho());
     const [login, setLogin] = useState(false);
 
-
     function carregarCarrinho(): any[] {
 
         const local = window.localStorage.getItem('carrinho');

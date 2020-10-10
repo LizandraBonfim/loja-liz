@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { ThemeProvider, DefaultTheme } from 'styled-components';
-import { DefaultContext } from 'react-icons/lib';
 
 import Home from './pages/Home';
 import Header from './components/Header';
@@ -28,6 +27,12 @@ function App() {
   const toggleTheme = () => {
     setTheme(theme.title === 'light' ? dark : light);
   }
+
+  useEffect(() => {
+
+    window.scrollTo(0, 0)
+  }, [])
+
 
   return (
     <ThemeProvider theme={theme}>

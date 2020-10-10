@@ -98,7 +98,7 @@ button{
 export const ProdutoFinalizar = styled.section`
     display: grid ;
     gap: 1rem;
-    grid-template-columns: minmax(3rem,5rem) 1fr minmax(5rem,6rem) minmax(5rem,9rem) auto; 
+    grid-template-columns: minmax(4rem,7rem)  1fr minmax(5rem,6rem) minmax(5rem,9rem) auto; 
     margin-bottom: 2rem;
     align-items: center;
     justify-items: end;

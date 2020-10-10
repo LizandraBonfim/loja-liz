@@ -20,7 +20,7 @@ export const SelectBlock = styled.div`
         outline: none;
 
         >option{
-
+        background: var(--border-color-escuro);
         padding: 1rem;
         &:active{
             background-color: var(--color-rosa);

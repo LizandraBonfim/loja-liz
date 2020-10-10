@@ -5,6 +5,11 @@ export const HeaderContainer = styled.header`
     box-shadow: 0px 1px 0 0  ${props => props.theme.color.primary};
     padding: .2rem 0;
 
+    svg:nth-child(3)  > *{
+        fill: ${props =>
+        props.theme.title === 'dark' ? 'var(--color-rosa)' : props.theme.color.svg};
+    }
+
 `;
 
 export const DisplayFlex = styled.div`
@@ -26,21 +31,10 @@ export const DisplayFlex = styled.div`
     p{
         font-size: .9rem;
     }
-    div{
-        a{
-           
-        }
-    }
                 
     
 `;
 
-export const Img = styled.img`
-        grid-area: logo;
-        margin: auto;
-        width: 4rem;
-        display: block;
-`;
 export const HeaderFixed = styled.div`
     width: 100%;
     position: fixed;
@@ -48,6 +42,8 @@ export const HeaderFixed = styled.div`
     left: 0;
     z-index: 1;
     background: ${props => props.theme.color.background};
+    box-shadow: 0px 1px 0 0  ${props => props.theme.color.primary};
+
 
     div:first-child{
         padding: .5rem 0;
@@ -60,6 +56,16 @@ export const HeaderFixed = styled.div`
    
 `;
 export const Content = styled.div`
+    > a{
+        width: 4rem;
+        margin: auto;
+        img{
+            grid-area: logo;
+            height: 100%;
+            display: block;
+        }
+    }
+
     padding: 1rem 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

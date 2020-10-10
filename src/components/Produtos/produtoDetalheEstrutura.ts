@@ -8,18 +8,27 @@ export const ProdutoDetalheContainer = styled.div`
 `;
 
 export const Container = styled.div`
-    background: var(--color-branco);
 
-    border: 1px solid  ${props => props.theme.color.primary};
     display: grid;
     grid-template-columns: minmax(27rem,1fr) minmax(29rem,2fr);
-    gap: 2rem;
+    grid-template-areas:
+        ' imagem detalhes'
+        ' minifotos minifotos ';
+    /* grid-template-rows: 35rem auto; */
+    grid-auto-rows: 35rem auto;
 
     section:first-child{
        
-        margin: auto;
+        /* margin: auto; */
+        border: 1px solid  ${props => props.theme.color.primary};
+
         padding: 1rem;
         background: var(--color-branco);
+        grid-area: imagem;
+
+        img{
+            max-height: 100%;
+        }
     }
 
     h1{
@@ -39,7 +48,12 @@ export const Container = styled.div`
 
     @media(max-width: 60rem){
         grid-template-columns: 1fr;
-        gap: 3rem;
+        grid-template-areas: 
+            'minifotos'
+            'imagem'
+            'detalhes'
+        ;
+        grid-auto-rows: auto;
 
         h3{
             font-size: 1rem;
@@ -50,9 +64,12 @@ export const Container = styled.div`
 
 
 export const DetalhesCompra = styled.section`
+    border: 1px solid  ${props => props.theme.color.primary};
+
     border-left: 1px solid ${props => props.theme.color.primary};
     padding: 1rem;
     font-family: var(--font-oswald);
+    grid-area: detalhes;
 
     background: ${props => props.theme.color.background};
     

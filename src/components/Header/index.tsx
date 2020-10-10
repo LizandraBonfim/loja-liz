@@ -4,36 +4,27 @@ import Switch from 'react-switch';
 import {
     FaPhone,
     FaMailBulk,
-    FaShoppingBag,
     FaInstagram,
     FaFacebook,
     FaYoutube,
     FaTwitter,
-    FaRegUser,
     FaMoon,
     FaRegLightbulb
 } from 'react-icons/fa';
 
 import { ThemeContext } from 'styled-components';
+import HeaderNavFixed from './HeaderNavFixed';
 
 import {
     HeaderContainer,
-    Content,
-    Carrinho,
     HeaderTopContent,
-    CarrinhoIcon,
     HeaderTop,
     RedesSociais,
     Contatos,
-    Nav,
     HeaderFixed,
     BotaoToggle,
-    Img
+
 } from './styles';
-import Input from '../Input';
-import { LojaContext } from '../../LojaContext';
-import { Container } from '../../global';
-import HeaderNavFixed from './HeaderNavFixed';
 
 interface Theme {
     toggleTheme(): void;
@@ -45,7 +36,6 @@ const Header: React.FC<Theme> = ({ toggleTheme }) => {
 
     const [scrolled, setScrolled] = React.useState(false);
 
-    console.log('scrolled', scrolled)
 
     const handleScroll = () => {
         const offset = window.scrollY;
@@ -59,11 +49,6 @@ const Header: React.FC<Theme> = ({ toggleTheme }) => {
     useEffect(() => {
         window.addEventListener('scroll', handleScroll)
     })
-
-    let x = ['navbar'];
-    if (scrolled) {
-        x.push('scrolled');
-    }
 
     return (
         <HeaderContainer>

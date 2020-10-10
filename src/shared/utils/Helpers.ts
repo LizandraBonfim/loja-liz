@@ -1,4 +1,3 @@
-import { Dispatch, SetStateAction } from "react";
 import { toast } from 'react-toastify';
 
 export default class Utils {

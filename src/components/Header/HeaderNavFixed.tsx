@@ -5,6 +5,10 @@ import {
     FaRegUser,
 } from 'react-icons/fa';
 import logo from '../../assets/logo-escuro.png';
+import Input from '../Input';
+import { LojaContext } from '../../LojaContext';
+import { Container } from '../../global';
+import Image from '../../shared/Image';
 
 
 import {
@@ -12,11 +16,8 @@ import {
     Carrinho,
     CarrinhoIcon,
     Nav,
-    Img
 } from './styles';
-import Input from '../Input';
-import { LojaContext } from '../../LojaContext';
-import { Container } from '../../global';
+
 
 
 const HeaderNavFixed: React.FC = () => {
@@ -32,8 +33,6 @@ const HeaderNavFixed: React.FC = () => {
 
         const values = carrinhos.map(e => e.qtd).reduce((a, b) => a + b);
         setQuantidade(values);
-        console.log('quantidade', quantidade)
-
     }, [carrinhos]);
 
 
@@ -43,7 +42,7 @@ const HeaderNavFixed: React.FC = () => {
 
                 <Input nome="pesquisa" type="text" placeholder="Pesquise.." />
                 <Link to="/">
-                    <Img src={logo} alt="Logo" />
+                    <img src={logo} alt="Logo" />
                 </Link>
 
                 <Carrinho>

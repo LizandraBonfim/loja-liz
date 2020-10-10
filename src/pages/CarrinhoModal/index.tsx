@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { BsX } from 'react-icons/bs';
 
@@ -10,7 +10,6 @@ import { LojaContext } from '../../LojaContext';
 import { AnimeLeft } from '../../global';
 import {
     Container,
-    CarrinhoVazio,
     CarrinhoContainer,
     TituloCarrinho,
     DadosTotal,
@@ -25,15 +24,9 @@ const CarrinhoModal: React.FC = () => {
     const history = useHistory();
     const { carrinhoVisivel, setCarrinhoVisivel, carrinhos } = useContext(LojaContext);
 
-    console.log('carrinhos', carrinhos)
-
     function handleFinalizar() {
         setCarrinhoVisivel(false);
         history.push('/finalizar');
-    }
-
-    function handleOutside() {
-        setCarrinhoVisivel(false);
     }
 
     if (!carrinhoVisivel) return null;
@@ -53,21 +46,25 @@ const CarrinhoModal: React.FC = () => {
                     </TituloCarrinho>
 
                 </section>
-                <ProdutosAdicionados>
+                <AnimeLeft>
 
-                    {carrinhos.length <= 0 &&
-                        <img src={carrinhovazio} alt="Carrinho vazio" />
-                    }
+                    <ProdutosAdicionados>
 
-                    {carrinhos.map(item => (
-                        <ItemCarrinho
-                            key={item.id}
-                            itemsCarrinhos={item}
-                        />
+                        {carrinhos.length <= 0 &&
+                            <img src={carrinhovazio} alt="Carrinho vazio" />
+                        }
 
-                    ))}
+                        {carrinhos.map(item => (
+                            <ItemCarrinho
+                                key={item.id}
+                                itemsCarrinhos={item}
+                            />
 
-                </ProdutosAdicionados>
+                        ))}
+
+                    </ProdutosAdicionados>
+                </AnimeLeft>
+
                 <BtnFinalizar>
                     <p>Calculo frete</p>
                     <CalculoFrete>

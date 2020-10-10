@@ -130,8 +130,8 @@ const ProdutoDetalhe: React.FC = () => {
                                 </BotaoComprar>
                             </DetalhesCompra>
 
+                            <MiniFotos src={item.image} />
                         </Container>
-                        <MiniFotos src={item.image} />
                     </ProdutoDetalheContainer>
 
                 ))}
