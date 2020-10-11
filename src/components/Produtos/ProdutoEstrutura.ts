@@ -35,6 +35,7 @@ export const ProdutoItem = styled.div`
     transition: .2s;
     background: var(--color-branco);
     padding: .1rem;
+    
 
     button{
         display: none;

@@ -1,6 +1,9 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
+
+import Utils from '../../shared/utils/Helpers';
+import { LojaContext } from '../../LojaContext';
+
 import {
     ProdutoItem,
     DescricaoProduto,
@@ -8,87 +11,63 @@ import {
     DetalhesProduto,
     ProdutoImagem
 } from './ProdutoEstrutura'
-import api from '../../service/api';
-import { LojaContext } from '../../LojaContext';
-import Utils from '../../shared/utils/Helpers';
 
-const Produto: React.FC = () => {
+interface ProdutoProps {
+    item: ItemProps
+}
 
-    const { produtos, setProdutos, carrinhos, setCarrinhos } = useContext(LojaContext);
+interface ItemProps {
+    image: string;
+    title: string;
+    price: string;
+    qtd: string;
+    category?: string;
+    subtotal: any;
+    id: any;
+}
 
-    useEffect(() => {
-        async function getData() {
-            try {
 
+const Produto: React.FC<ProdutoProps> = ({ item }) => {
+    const { carrinhos, setCarrinhos } = useContext(LojaContext);
 
-                const response = await api.get('/produtos');
-                const json = await response.data;
-                console.log('jsonResult', response)
-
-                setProdutos(json);
-
-                return;
-            } catch (error) {
-                toast.error('Ocorreu um erro.');
-                console.log({ error: error });
-                return;
-
-            }
-        };
-
-        getData()
-    }, []);
 
     function handleClick(item: any) {
 
         Utils.BotaoAdicionarCarrinho(item, carrinhos, setCarrinhos);
     }
 
-    if (!produtos) return null;
 
     return (
-        <>
-            {produtos && produtos.map(item => (
-
-                <ProdutoItem key={item.id}>
-                    <Link to={`/produto/${item.id}`} >
-                        <ProdutoImagem>
-                            <img src={item.image} alt={item.title} />
-                        </ProdutoImagem>
+        <ProdutoItem key={item.id}>
+            <Link to={`/produto/${item.id}`} >
+                <ProdutoImagem>
+                    <img src={item.image} alt={item.title} />
+                </ProdutoImagem>
 
 
-                        <DescricaoProduto>
-                            <div>
-                                <h4>{item.title} </h4>
+                <DescricaoProduto>
+                    <div>
+                        <h4>{item.title} </h4>
 
-                                <Preco>
-                                    <h3> {Utils.Valores(item.price)}</h3>
-                                </Preco>
+                        <Preco>
+                            <h3> {Utils.Valores(item.price)}</h3>
+                        </Preco>
 
-                                <DetalhesProduto>
+                        <DetalhesProduto>
 
-                                    <span>
-                                        <strong>4</strong>x  de
+                            <span>
+                                <strong>4</strong>x  de
                                         <strong>R$10,00</strong>
                                         sem juros
                                     </span>
 
-                                    {/* <p>{item.description}</p> */}
-                                </DetalhesProduto>
-                            </div>
-                        </DescricaoProduto>
-
-
-
-                    </Link>
-                    <button onClick={() => handleClick(item)}> Comprar </button>
-
-                </ProdutoItem>
-
-            ))}
-        </>
-
-
+                            {/* <p>{item.description}</p> */}
+                        </DetalhesProduto>
+                    </div>
+                </DescricaoProduto>
+            </Link>
+            <button onClick={() => handleClick(item)}> Comprar </button>
+        </ProdutoItem>
     )
 }
 

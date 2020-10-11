@@ -1,9 +1,7 @@
 import React, { useContext } from 'react';
-import produto from '../../assets/produtos/caneca3.jpg';
 
 import { FcFullTrash } from 'react-icons/fc';
 import { FaMinus } from 'react-icons/fa';
-import { BiMinus } from 'react-icons/bi';
 import {
     ProdutoFinalizar,
     BotaoQuantidade,

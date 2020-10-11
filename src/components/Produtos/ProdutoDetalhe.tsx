@@ -21,6 +21,8 @@ import api from '../../service/api';
 import Utils from '../../shared/utils/Helpers';
 import { LojaContext } from '../../LojaContext';
 import Image from '../../shared/Image';
+import { toast } from 'react-toastify';
+import Loading from '../Loading';
 
 const ProdutoDetalhe: React.FC = () => {
 
@@ -29,13 +31,14 @@ const ProdutoDetalhe: React.FC = () => {
     const id = temp1.id as number;
 
     const [produto, setProduto] = useState<any[]>([]);
-    const { carrinhos, setCarrinhos } = useContext(LojaContext);
+    const { carrinhos, setCarrinhos, loading, setLoading } = useContext(LojaContext);
 
 
     useEffect(() => {
         async function getData() {
             try {
 
+                setLoading(true);
 
                 const response = await api.get('/produtos/', {
                     params: {
@@ -43,16 +46,15 @@ const ProdutoDetalhe: React.FC = () => {
                     }
                 });
                 const json = await response.data;
-                console.log('jsonResult', response)
 
                 setProduto(json);
-                console.log('produto', produto)
-
+                setLoading(false);
                 return;
+
             } catch (error) {
-                console.log({ error: error });
+                toast.dark('Ocorreu um erro.');
+                setLoading(false);
                 return;
-
             }
         };
 
@@ -65,6 +67,8 @@ const ProdutoDetalhe: React.FC = () => {
 
         Utils.BotaoAdicionarCarrinho(item, carrinhos, setCarrinhos);
     }
+
+    if (loading) return <Loading />
 
     return (
 

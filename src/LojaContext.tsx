@@ -5,11 +5,14 @@ interface Props {
     setCarrinhoVisivel: Dispatch<SetStateAction<boolean>>;
     setProdutos: Dispatch<SetStateAction<any[]>>;
     setLogin: Dispatch<SetStateAction<boolean>>;
+    setLoading: Dispatch<SetStateAction<boolean>>;
     setCarrinhos: (carrinho: any[]) => void;
     carrinhoVisivel: boolean;
     carrinhos: any[];
     produtos: any[];
     login: boolean;
+    loading: boolean;
+
 
 }
 
@@ -22,6 +25,7 @@ const ContainerLoja: React.FC = ({ children }) => {
     const [produtos, setProdutos] = useState<any[]>([]);
     const [carrinhos, setCarrinhos] = useState<any[]>(() => carregarCarrinho());
     const [login, setLogin] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     function carregarCarrinho(): any[] {
 
@@ -65,6 +69,8 @@ const ContainerLoja: React.FC = ({ children }) => {
     return (
         <LojaContext.Provider value={{
             carrinhoVisivel,
+            loading,
+            setLoading,
             setCarrinhoVisivel,
             produtos,
             setProdutos,
