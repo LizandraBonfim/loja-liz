@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaInstagram, FaFacebook, FaYoutube, FaTwitter } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import logo from '../../assets/logo-escuro.png';
 import googleStore from '../../assets/playmarket.png';
 import appstore from '../../assets/appstore.png';
@@ -78,7 +79,9 @@ const Footer: React.FC = () => {
                     </Section>
 
                 </Content>
+
             </Container>
+            <h5>Desenvolvido por <Link to="https://www.linkedin.com/in/lizandra-bonfim/">Lizandra Bonfim</Link></h5>
         </FooterContainer>
     )
 }

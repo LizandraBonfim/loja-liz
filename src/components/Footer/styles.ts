@@ -1,8 +1,20 @@
 import styled from 'styled-components';
 
 export const FooterContainer = styled.footer`
-    box-shadow: -1px -1px 0 0  ${props => props.theme.color.primary};
+    box-shadow: -1px -2px 0 0 var(--color-rosa);
     padding: 2rem 0;
+
+    h5{
+        text-align: center;
+        color: ${props => props.theme.title === 'dark' && '#fff'};
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 2px solid var(--color-rosa);
+
+        a{
+            color: var(--color-rosa);
+        }
+    }
 `;
 
 export const Newsletter = styled.div`
@@ -10,6 +22,10 @@ export const Newsletter = styled.div`
     margin:  auto;
     padding-bottom: 1rem;
     text-align: center;
+
+    @media (max-width: 60rem) {
+        padding: 0 .5rem;
+    }
 
 `;
 

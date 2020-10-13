@@ -7,7 +7,7 @@ export const Container = styled.section`
 margin: 3rem;
 
   display: grid;
-  grid-template-columns: minmax(32rem,1fr) 2fr;
+  grid-template-columns: minmax(29rem,1fr) 2fr;
   grid-template-areas: 
   ' endereco pedidoscarrinho'
   ' dadoscartao  pedidoscarrinho '
@@ -105,14 +105,18 @@ img{
     margin: auto;
 }
 
+@media (max-width: 60rem){
+    padding: 5rem 0 ;
+
+}
+
 `;
 
 
 export const CarrinhoContainer = styled.section`
     grid-area: pedidoscarrinho;
-    /* grid-column: 1/2; */
     overflow-y: auto;
-    margin-top: 2rem;
+    margin-top: 4rem;
 
     padding: 0 1rem;
     ${EstiloScroll}

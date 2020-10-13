@@ -89,6 +89,7 @@ export const DadosTotal = styled.div`
 export const ProdutosAdicionados = styled.section`
     overflow-y: auto;
     grid-area: compras;
+    max-height: 20rem;
     
     > div + div{
       padding: 2rem 0;

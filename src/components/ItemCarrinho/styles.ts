@@ -26,10 +26,17 @@ export const ProdutoContainer = styled(AnimeLeft)`
   strong{
     margin: 1rem 0;
   }
+`;
 
+export const FotoImage = styled.figure`
+      margin: 0;
+      height: 9rem;
 
-
-  
+      img{
+        height: 100%;
+        object-fit: contain;
+        background: var(--color-branco);
+      }
 `;
 
 

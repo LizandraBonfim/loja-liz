@@ -4,7 +4,8 @@ import { FaPlus, FaMinus } from 'react-icons/fa';
 import {
     ProdutoContainer,
     BotaoQuantidade,
-    Lixeira
+    Lixeira,
+    FotoImage
 } from './styles';
 
 import Utils from '../../shared/utils/Helpers';
@@ -44,8 +45,10 @@ const ItemCarrinho: React.FC<ProdutoProps> = ({ itemsCarrinhos }) => {
 
     return (
         <ProdutoContainer>
+            <FotoImage>
 
-            <img src={itemsCarrinhos.image} alt={itemsCarrinhos.title} />
+                <img src={itemsCarrinhos.image} alt={itemsCarrinhos.title} />
+            </FotoImage>
 
             <div>
                 <div>
