@@ -48,16 +48,11 @@ svg > * {
     transition: all 0.50s linear;
     ${EstiloScroll}
  
-    /* background: #24292e; */
   }
 
-  /* header{
-    border-color: rgb(24, 26, 31);
-  } */
 
   ::placeholder{
     font-family:  var(--font-oswald) ;
-    /* text-transform: uppercase; */
   }
 
   p{

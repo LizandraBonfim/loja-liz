@@ -5,9 +5,17 @@ export const FooterContainer = styled.footer`
     padding: 2rem 0;
 `;
 
+export const Newsletter = styled.div`
+    max-width: 45rem;
+    margin:  auto;
+    padding-bottom: 1rem;
+    text-align: center;
 
+`;
 
 export const Content = styled.div`
+    border-top: 1px dashed ${props => props.theme.color.primary};
+    padding-top: 1rem;
     display: grid;
     grid-template-columns: minmax(200px,1.5fr) 1fr 1fr 1fr;
 

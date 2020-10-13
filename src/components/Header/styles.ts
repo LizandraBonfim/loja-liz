@@ -44,6 +44,9 @@ export const HeaderFixed = styled.div`
     background: ${props => props.theme.color.background};
     box-shadow: 0px 1px 0 0  ${props => props.theme.color.primary};
 
+    button{
+        margin-top: .5rem;
+    }
 
     div:first-child{
         padding: .5rem 0;
@@ -250,5 +253,37 @@ export const BotaoToggle = styled.div`
     align-items: center;
     position: relative;
 
+`;
+
+export const CampoPesquisa = styled.form`
+    position: relative;
+    display: flex;
+    margin: 1rem 0;
+    
+    width: 100%;
+
+    div{
+        padding:0;
+        width: 100%;
+    }
+
+    input{
+        position: relative;
+
+    }
+    button{
+        font-family:var(--font-roboto); 
+        font-weight: bold;
+        border-radius: 0 .5rem .5rem 0;
+        background: transparent;
+        position: absolute;
+        width: 15%;
+        right: 0;
+
+        &:hover, &:focus{
+            box-shadow: ${props => props.theme.title == 'light' && 'inset 0px 0px 3px 0px var(--color-instagram)'};
+        }
+        
+    }
 `;
 

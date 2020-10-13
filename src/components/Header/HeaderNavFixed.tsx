@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import {
     FaShoppingBag,
     FaRegUser,
+    FaSearch,
 } from 'react-icons/fa';
 import logo from '../../assets/logo-escuro.png';
 import Input from '../Input';
@@ -16,7 +17,9 @@ import {
     Carrinho,
     CarrinhoIcon,
     Nav,
+    CampoPesquisa
 } from './styles';
+import Button from '../Button';
 
 
 
@@ -39,8 +42,11 @@ const HeaderNavFixed: React.FC = () => {
     return (
         <Container >
             <Content>
+                <CampoPesquisa>
 
-                <Input nome="pesquisa" type="text" placeholder="Pesquise.." />
+                    <Input nome="pesquisa" type="text" placeholder="Pesquise.." />
+                    <Button><FaSearch /></Button>
+                </CampoPesquisa>
                 <Link to="/">
                     <img src={logo} alt="Logo" />
                 </Link>

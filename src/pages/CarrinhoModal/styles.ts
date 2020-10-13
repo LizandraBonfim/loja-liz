@@ -15,6 +15,7 @@ export const Container = styled.div`
     display: grid;
     grid-template-columns: 3fr 1fr;
 
+
     input {
       background: ${props => props.theme.color.colorClaro}
     }

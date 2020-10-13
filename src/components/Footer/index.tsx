@@ -3,15 +3,28 @@ import { FaInstagram, FaFacebook, FaYoutube, FaTwitter } from 'react-icons/fa';
 import logo from '../../assets/logo-escuro.png';
 import googleStore from '../../assets/playmarket.png';
 import appstore from '../../assets/appstore.png';
+import { RedesSociais } from '../Header/styles';
+import Input from '../Input';
+import Button from '../Button';
 
 import { Container } from '../../global';
 
-import { FooterContainer, Content, Institucional, Section } from './styles';
-import { RedesSociais } from '../Header/styles';
+import { FooterContainer, Content, Institucional, Section, Newsletter } from './styles';
+import { CalculoFrete } from '../Produtos/produtoDetalheEstrutura';
 
 const Footer: React.FC = () => {
     return (
         <FooterContainer>
+
+            <Newsletter>
+                <h1>Newsletter</h1>
+                <p>Assine para receber nossas ofertas</p>
+
+                <CalculoFrete>
+                    <Input placeholder="Digite seu e-mail" nome="newsletter" type="text" label="" />
+                    <Button >Assinar </Button>
+                </CalculoFrete>
+            </Newsletter>
 
             <Container>
                 <Content>

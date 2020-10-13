@@ -68,7 +68,7 @@ const ProdutoDetalhe: React.FC = () => {
         Utils.BotaoAdicionarCarrinho(item, carrinhos, setCarrinhos);
     }
 
-    if (loading) return <Loading />
+    if (loading) return <MainContainer><Loading /></MainContainer>
 
     return (
 
